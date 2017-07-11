@@ -1,0 +1,338 @@
+﻿* {
+    padding: 0px;
+    margin: 0px;
+}
+
+@font-face {
+    font-family: 'latoblack';
+    src: url('../Fonts/Lato/lato-black-webfont.eot');
+    src: url('../Fonts/Lato/lato-black-webfont.eot?#iefix') format('embedded-opentype'), url('../Fonts/Lato/lato-black-webfont.woff2') format('woff2'), url('../Fonts/Lato/lato-black-webfont.woff') format('woff'), url('../Fonts/Lato/lato-black-webfont.ttf') format('truetype'), url('../Fonts/Lato/lato/lato-black-webfont.svg#latoblack') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latolight';
+    src: url('../Fonts/Lato/lato-light-webfont.eot');
+    src: url('../Fonts/Lato/lato-light-webfont.eot?#iefix') format('embedded-opentype'), url('../Fonts/Lato/lato-light-webfont.woff2') format('woff2'), url('../Fonts/Lato/lato-light-webfont.woff') format('woff'), url('../Fonts/Lato/lato-light-webfont.ttf') format('truetype'), url('../Fonts/Lato/lato-light-webfont.svg#latolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latoregular';
+    src: url('../Fonts/Lato/lato-regular-webfont.eot');
+    src: url('../Fonts/Lato/lato-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../Fonts/Lato/lato-regular-webfont.woff2') format('woff2'), url('../Fonts/Lato/lato-regular-webfont.woff') format('woff'), url('../Fonts/Lato/lato-regular-webfont.ttf') format('truetype'), url('../Fonts/Lato/lato-regular-webfont.svg#latoregular') format('svg');
+    font-style: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bebas_neueregular';
+    src: url('../Fonts/Bebas/bebasneue-webfont.eot');
+    src: url('../Fonts/Bebas/bebasneue-webfont.eot?#iefix') format('embedded-opentype'), url('../Fonts/Bebas/bebasneue-webfont.woff2') format('woff2'), url('../Fonts/Bebas/bebasneue-webfont.woff') format('woff'), url('../Fonts/Bebas/bebasneue-webfont.ttf') format('truetype'), url('../Fonts/Bebas/bebasneue-webfont.svg#bebas_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+p {
+    margin: 10px 0px;
+}
+
+.clear {
+    visibility: hidden;
+    clear: both;
+}
+
+body {
+    font-family: 'latoregular';
+    font-size: 1rem;
+    color: #666;
+}
+
+a, a:hover, a:visited {
+    text-decoration: none;
+}
+
+.container {
+    position: relative;
+    width: 1024px;
+    margin: 0px auto;
+}
+
+.navigation {
+    font-family: 'bebas_neueregular';
+    width: 99.3%;
+    padding: 10px 0px 10px 10px;
+    background-color: #005396;
+    position: relative;
+    margin-bottom: 10px;
+    /* Internet Explorer */
+    *margin-top: 80px;
+    *padding: 8px 0px 11px 0px;
+}
+
+    .navigation a {
+        padding: 10px 18px 10px 0px;
+        color: #fff;
+        font-size: 1rem;
+        text-decoration: none;
+    }
+
+.footer {
+    position: fixed;
+    background-color: #005396;
+    width: 98.5%;
+    padding: 5px 10px;
+    bottom: 0px;
+    color: #fff;
+    z-index: 500;
+    font-size: 0.85rem;
+}
+
+    .footer .informacoes {
+        float: left;
+    }
+
+    .footer .versao {
+        color: #f8ac11;
+        float: right;
+    }
+
+.alerta {
+    padding: 10px;
+    background-color: #FFFFBF;
+    border: 1px solid #c6b149;
+    position: relative;
+    border-radius: 3px;
+    color: #c6b149;
+    font-weight: bold;
+    margin: 0px 0px 20px 0px;
+    width: 98%;
+}
+
+#bgModal {
+    position: fixed;
+    background-image: url("../Imagens/bgModal.png");
+    width: 100%;
+    height: 130%;
+    z-index: 520;
+    margin-top: -125px;
+    left: 0px;
+}
+
+#load {
+    position: fixed;
+    background-image: url("../Imagens/loader.gif");
+    width: 32px;
+    height: 32px;
+    z-index: 110;
+    top: 50%;
+    left: 50%;
+    margin-top: -16px;
+    margin-left: -16px;
+}
+
+/* modal falha */
+.modalFalha {
+    position: fixed;
+    width: 260px;
+    height: 180px;
+    padding: 10px;
+    background-color: #fff;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    margin: -150px 0px 0px -145px;
+    border: 4px solid #d20000;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#iconeFalha {
+    float: left;
+    width: 48px;
+    height: 48px;
+    background-image: url(../Imagens/cancelar.png);
+    background-size: 48px;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+}
+
+#cabecalhoFalha {
+    font-family: 'bebas_neueregular';
+    background-color: #d20000;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 10px;
+    width: 300px;
+    margin: -11px 0px 10px -11px;
+}
+
+/* modal alerta */
+.modalAlerta {
+    position: fixed;
+    width: 260px;
+    height: 180px;
+    padding: 10px;
+    background-color: #fff;
+    z-index: 700;
+    left: 50%;
+    top: 50%;
+    margin: -154px 0px 0px -146px;
+    border: 4px solid #D5A210;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#iconeAlerta {
+    float: left;
+    width: 48px;
+    height: 48px;
+    background-image: url(../Imagens/alerta.png);
+    background-size: 48px;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+}
+
+#cabecalhoAlerta {
+    font-family: 'bebas_neueregular';
+    background-color: #D5A210;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 10px;
+    width: 300px;
+    margin: -11px 0px 10px -11px;
+}
+
+/* modal sucesso */
+.modalSucesso {
+    position: fixed;
+    width: 260px;
+    height: 180px;
+    padding: 10px;
+    background-color: #fff;
+    z-index: 700;
+    left: 50%;
+    top: 50%;
+    margin: -154px 0px 0px -146px;
+    border: 4px solid #248909;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#iconeSucesso {
+    float: left;
+    width: 48px;
+    height: 48px;
+    background-image: url(../Imagens/sucesso.png);
+    background-size: 48px;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+}
+
+#cabecalhoSucesso {
+    font-family: 'bebas_neueregular';
+    background-color: #248909;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 10px;
+    width: 300px;
+    margin: -11px 0px 10px -11px;
+}
+
+/* modal pergunta */
+.modalPergunta {
+    position: fixed;
+    width: 260px;
+    height: 180px;
+    padding: 10px;
+    background-color: #fff;
+    z-index: 700;
+    left: 50%;
+    top: 50%;
+    margin: -154px 0px 0px -146px;
+    border: 4px solid #255589;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#iconePergunta {
+    float: left;
+    width: 48px;
+    height: 48px;
+    background-image: url(../Imagens/pergunta.png);
+    background-size: 48px;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+}
+
+#cabecalhoPergunta {
+    font-family: 'bebas_neueregular';
+    background-color: #255589;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 10px;
+    width: 300px;
+    margin: -11px 0px 10px -11px;
+}
+
+.modalFalha .ok, .modalAlerta .ok, .modalSucesso .ok, .modalPergunta .ok {
+    font-family: 'bebas_neueregular';
+    position: absolute;
+    width: 80px;
+    padding: 5px 10px 5px 10px;
+    background-color: #ddd;
+    border: 1px solid #999;
+    color: #666;
+    font-size: .875rem;
+    font-weight: bold;
+    border-radius: 3px;
+    bottom: 0px;
+    right: 0px;
+    margin: 0px 10px 10px 0px;
+    cursor: pointer;
+    text-align: center;
+    background-image: linear-gradient(to bottom, #fff, #ccc 130%);
+}
+
+/* texto modais */
+.respostaFalha, .respostaAlerta, .respostaSucesso, .respostaPergunta {
+    font-size: .8125rem;
+    text-align: left;
+    height: 110px;
+    overflow: hidden;
+}
+
+/* barra de ferramentas */
+.barraFerramentas {
+    position: relative;
+    width: 100%;
+    height: 105px;
+    background-color: #f1f1f1;
+    color: #666;
+    border: 1px solid #999;
+    border-radius: 3px;
+    margin: 15px 0px 15px 0px;
+}
+
+    .barraFerramentas .botao {
+        float: left;
+        width: 105px;
+        height: 80px;
+        padding: 10px 0px 10px 0px;
+        font-weight: bold !important;
+        font-size: 12px !important;
+        text-align: center !important;
+    }
+
+        .barraFerramentas .botao img {
+            margin-bottom: 0px;
+            width: 64px;
+            _border: 0px !important;
+            cursor: pointer;
+        }

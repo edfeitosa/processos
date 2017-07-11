@@ -1,0 +1,13 @@
+﻿<h1>Novo Separador</h1>
+
+@Ferramentas.Create(true, "separadores", false)
+
+<p>Todos os campos marcados com <b>(*)</b> precisam ser preenchidos.</p>
+
+@Forms.Text("Título (*)", "Sep_titulo", "Digite um título que servirá para identificar o separador", "", "input", "50", "")
+@Forms.Text("Separador (*)", "Sep_separador", "Digite o separador que será usado", "", "input", "100", "")
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/System/separadores.js")"></script>
+<script type="text/javascript">
+    Create();
+</script>

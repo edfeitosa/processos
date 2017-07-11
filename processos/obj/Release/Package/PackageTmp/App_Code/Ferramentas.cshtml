@@ -1,0 +1,161 @@
+﻿<!-- Barra de ferramentas home -->
+@helper BotaoHome(bool voltar)
+{
+    <div class="barraFerramentas">
+        @if (voltar == true)
+        {
+            <div class="botao">
+                <img src="~/Imagens/voltar.png" alt="voltar" title="Voltar" id="voltar" />
+                <br />
+                Voltar
+            </div>
+        }
+        <div class="botao">
+            <a href="~/Home">
+                <img src="~/Imagens/home.png" alt="home" title="Painel de Administração" />
+            </a>
+            <br />
+            Início
+            <div class="clear"></div>
+        </div>
+        <div id="novosBotoes"></div>
+    </div>
+}
+
+<!-- Barra de ferramentas padrão -->
+@helper Padrao(string view)
+{
+    <div class="barraFerramentas">
+        <div class="botao">
+            <img src="~/Imagens/imprimir.png" alt="imprimir" id="imprimir" title="Imprimir contracheque" style="cursor: pointer;" />
+            <br />
+            Imprimir
+            <div class="clear"></div>
+        </div>
+        <div class="botao">
+            <a href="~/Home">
+                <img src="~/Imagens/home.png" alt="painel" title="Painel de Administração" />
+            </a>
+            <br />
+            Início
+            <div class="clear"></div>
+        </div>
+        <div id="novosBotoes"></div>
+    </div>
+}
+
+<!-- Barra de ferramentas padrão -->
+@helper PadraoCancelar(string view, string pagina)
+{
+    <div class="barraFerramentas">
+        <div class="botao">
+            <img src="~/Imagens/imprimir.png" alt="imprimir" id="imprimir" title="Imprimir" style="cursor: pointer;" />
+            <br />
+            Imprimir
+            <div class="clear"></div>
+        </div>
+        <div class="botao">
+            <a href="~/@view/@pagina">
+                <img src="~/Imagens/cancelar.png" alt="cancelar" title="Cancelar" />
+            </a>
+            <br />
+            Cancelar
+            <div class="clear"></div>
+        </div>
+        <div class="botao">
+            <a href="~/Home">
+                <img src="~/Imagens/home.png" alt="painel" title="Painel de Administração" />
+            </a>
+            <br />
+            Início
+            <div class="clear"></div>
+        </div>
+    </div>
+}
+
+<!-- Barra de ferramentas padrão -->
+@helper PadraoIndex(string view)
+{
+    <div class="barraFerramentas">
+        <div class="botao">
+            <a href="~/@view/Salvar?id=0">
+                <img src="~/Imagens/adicionar.png" alt="novo" title="Adicionar novo" />
+            </a>
+            <br />
+            Novo
+            <div class="clear"></div>
+        </div>
+        <div class="botao">
+            <a href="~/Home">
+                <img src="~/Imagens/home.png" alt="painel" title="Painel de Administração" />
+            </a>
+            <br />
+            Início
+            <div class="clear"></div>
+        </div>
+    </div>
+}
+
+<!-- Barra de ferramentas padrão na página salvar -->
+@helper Create(bool novo, string view, bool listar)
+{
+    <div class="barraFerramentas">
+        @if (novo == true)
+        {
+            <div class="botao">
+                <a href="~/@view/Create">
+                    <img src="~/Imagens/adicionar.png" alt="novo" title="Adicionar novo" />
+                </a>
+                <br />
+                Novo
+                <div class="clear"></div>
+            </div>
+        }
+        <div class="botao">
+            <img src="~/Imagens/salvar.png" alt="salvar" id="salvar" title="Salvar dados" />
+            <br />
+            Salvar
+            <div class="clear"></div>
+        </div>
+        @if (listar == true)
+        {
+            <div class="botao">
+                <a href="~/@view">
+                    <img src="~/Imagens/fechar.png" alt="fechar" title="Fechar" />
+                </a>
+                <br />
+                Fechar
+                <div class="clear"></div>
+            </div>
+        }
+        <div class="botao">
+            <a href="~/Home">
+                <img src="~/Imagens/home.png" alt="painel" title="Painel Inicial" />
+            </a>
+            <br />
+            Início
+            <div class="clear"></div>
+        </div>
+    </div>
+}
+
+<!-- Barra de ferramentas da página de recuperação de senha -->
+@helper RecuperacaoSenha()
+{
+    <div class="barraFerramentas">
+        <div class="botao" id="mudarSenha">
+            <img src="~/Imagens/busca.png" alt="buscar" id="buscar" title="Buscar Dados" />
+            <br />
+            Buscar
+            <div class="clear"></div>
+        </div>
+        <div class="botao">
+            <a href="~/Home">
+                <img src="~/Imagens/home.png" alt="painel" title="Painel Inicial" />
+            </a>
+            <br />
+            Início
+            <div class="clear"></div>
+        </div>
+    </div>
+}

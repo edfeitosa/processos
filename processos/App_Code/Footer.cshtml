@@ -1,0 +1,11 @@
+﻿@helper footer(string descricao, string versao)
+{
+    <div class="footer">
+        <div class="informacoes">
+              @descricao - @DateTime.Now.Year &reg;
+        </div>
+        <div class="versao">
+            @versao
+        </div>
+    </div>
+}

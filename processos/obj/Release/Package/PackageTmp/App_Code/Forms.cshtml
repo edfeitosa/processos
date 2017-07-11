@@ -1,0 +1,229 @@
+﻿<!-- Helpers responsável pelo input text -->
+@helper Text(string titulo, string nome, string placeholder, string valor, string classe, string max, string style)
+{
+    <div class="tituloinput">@titulo</div>
+    <input type="text" name="@nome" id="@nome" class="@classe" style="@style" placeholder="@placeholder" maxlength="@max" value="@valor" />
+}
+
+<!-- Helpers responsável pelo input text -->
+@helper Password(string titulo, string nome, string placeholder, string valor, string classe, string max, string style)
+{
+    <div class="tituloinput">@titulo</div>
+    <input type="password" name="@nome" id="@nome" class="@classe" style="@style" placeholder="@placeholder" maxlength="@max" value="@valor" />
+}
+
+<!-- Helper responsável pelo uso do textarea -->
+@helper Textarea(string titulo, string nome, string valor, string classe, string style)
+{
+    <div class="tituloinput">@titulo</div>
+    <textarea class="@classe" id="@nome" style="@style">@valor</textarea>
+}
+
+<!-- Botão submit -->
+@helper Submit(string titulo, string nome, string classe, string style)
+{
+    <input type="submit" name="@nome" id="@nome" value="@titulo" class="@classe" style="@style" />
+}
+
+<!-- Input hidden -->
+@helper Hidden(string nome, string valor)
+{
+    <input type="hidden" name="@nome" id="@nome" value="@valor" />
+}
+
+<!-- Checkbox simples -->
+@helper Checkbox(string titulo, string nome, string classe, string style, bool checar, string valor)
+{
+    <div class="@classe">
+        @if (checar == true || valor == "sim".ToString())
+        {
+            <input type="checkbox" name="@nome" id="@nome" value="sim" checked /> @titulo
+        }
+        else
+        {
+            <input type="checkbox" name="@nome" id="@nome" value="sim" /> @titulo
+        }
+    </div>
+}
+
+<!-- Checkbox de dados estáticos a partir de array informado -->
+@helper CheckboxArray(string titulo, string nome, string valor, string classe, string style, string[] opcoes)
+{
+    <!-- Monta o select a partir dos dados importados -->
+    <div class="tituloinput">@titulo</div>
+    for (int i = 0; i < opcoes.Length; i++)
+    {
+        <div class="@classe">
+            @{ string name = nome + "[]"; }
+            @if (valor == i.ToString())
+            {
+                <div class="check">
+                    <input type="checkbox" name="@name" id="@nome-@i" value="@i" checked />
+                </div>
+                @opcoes[i]
+                <div class="clear"></div>
+            }
+            else
+            {
+                <div class="check">
+                    <input type="checkbox" name="@name" id="@nome-@i" value="@i" />
+                </div>
+                @opcoes[i]
+                <div class="clear"></div>
+            }
+        </div>
+    }
+    <div class="clear"></div>
+}
+
+<!-- Radio de dados estáticos a partir de array informado -->
+@helper RadioArray(string titulo, string nome, string valor, string classe, string style, string[] opcoes)
+{
+    <!-- Monta o select a partir dos dados importados -->
+    <div class="tituloinput">@titulo</div>
+    for (int i = 0; i < opcoes.Length; i++)
+    {
+        <div class="@classe">
+            @{ string name = nome; }
+            @if (valor == i.ToString())
+            {
+                <div class="check">
+                    <input type="radio" name="@name" id="@nome-@i" value="@i" checked />
+                </div>
+                @opcoes[i]
+                <div class="clear"></div>
+            }
+            else
+            {
+                <div class="check">
+                    <input type="radio" name="@name" id="@nome-@i" value="@i" />
+                </div>
+                @opcoes[i]
+                <div class="clear"></div>
+            }
+        </div>
+    }
+    <div class="clear"></div>
+}
+
+<!-- Select a partir de uma lista dinâmica com dados do banco -->
+@helper Select(string titulo, string nome, string valor, string classe, string style, string view, string nomeValue, string nomeOption, string primeiraOpcao, string outros, string functionView)
+{
+    <!-- Carrega via ajax a lista de setores do hospital -->
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            var view = "@view";
+            var functionView = "@functionView";
+            var value = "@valor";
+            var acao = "listar";
+            var primeiraOpcao = "@primeiraOpcao";
+            var outros = "@outros";
+            jQuery.ajax({
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                type: "get",
+                url: "http://" + caminhoAbsoluto() + "/" + view + "/" + functionView,
+                data: {
+                    acao: acao
+                },
+                success: function (dados) {
+                    var qtd = dados.length;
+                    var retorno = '';
+                    if (primeiraOpcao != "") {
+                        retorno += '<option value="0">' + primeiraOpcao + '</option>';
+                    }
+                    // Monta os options que irão retornar para o select
+                    for (i = 0; i < qtd; i++) {
+                        // Se o value for "0", não compara
+                        if (value == "0") {
+                            retorno += '<option value="0">' + primeiraOpcao + '</option>';
+                        } else {
+                            // Se value for diferente de "0" compara e adicionar o selected no option de valor igual
+                            if (value == dados[i].@nomeValue) {
+                                retorno += '<option value="' + dados[i].@nomeValue + '" selected>' + dados[i].@nomeOption + '</option>';
+                            } else {
+                                retorno += '<option value="' + dados[i].@nomeValue + '">' + dados[i].@nomeOption + '</option>';
+                            }
+                        }
+                    }
+                    // Adiciona o item outros
+                    if (outros == "sim") {
+                        retorno += '<option value="00">Outros</option>';
+                    }
+                    // Carrega as informações de produtos na div informada
+                    jQuery('#@nome').html(retorno);
+                }
+            })
+        })
+    </script>
+
+    <!-- Carrega itens com comparação ou não dependendo da ação -->
+    <div class="tituloinput">@titulo</div>
+    <select name="@nome" id="@nome" class="@classe" style="@style"></select>
+}
+
+<!-- Select de dados estáticos a partir de array informado -->
+@helper SelectArray(string titulo, string nome, string valor, string classe, string style, string[] opcoes)
+{
+    <!-- Monta o select a partir dos dados importados -->
+    <div class="tituloinput">@titulo</div>
+    <select name="@nome" id="@nome" class="@classe" style="@style">
+        @for (int i = 0; i < opcoes.Length; i++)
+        {
+            if (valor == i.ToString())
+            {
+                <option value="@i" selected>@opcoes[i]</option>
+            }
+            else
+            {
+                <option value="@i">@opcoes[i]</option>
+            }
+        }
+    </select>
+}
+
+<!-- Select de dados estáticos a partir de arquivo json -->
+@helper SelectJson(string titulo, string nome, string nomearquivo, string valor, string classe, string style)
+{
+    <!-- Carrega informações do arquivo json via ajax -->
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            var url = "http://" + caminhoAbsoluto() + "/Json/@nomearquivo";
+            jQuery.getJSON(url, function (dados) {
+                var qtd = dados.length;
+                var value = "@valor";
+                var retorno = '';
+                // Monta os options que irão retornar para o select
+                for (i = 0; i < qtd; i++) {
+                    // Se o value for "0", não compara
+                    if (value == "0") {
+                        retorno += '<option value="0">-- Nenhum valor encontrado --</option>';
+                    } else {
+                        // Se value for diferente de "0" compara e adicionar o selected no option de valor igual
+                        if (value == dados[i].VALUE) {
+                            retorno += '<option value="' + dados[i].VALUE + '" selected>' + dados[i].OPTION + '</option>';
+                        } else {
+                            retorno += '<option value="' + dados[i].VALUE + '">' + dados[i].OPTION + '</option>';
+                        }
+                    }
+                }
+                // Carrega as informações de produtos na div informada
+                jQuery('#@nome').html(retorno);
+            })
+        })
+    </script>
+    <!-- Monta o select a partir dos dados importados -->
+    <div class="tituloinput">@titulo</div>
+    <select name="@nome" id="@nome" class="@classe" style="@style"></select>
+}
+
+@helper HashAleatorio(int tamanho)
+{
+    var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    var random = new Random();
+    var resultado = new string(
+    Enumerable.Repeat(chars, tamanho)
+              .Select(s => s[random.Next(s.Length)])
+              .ToArray());
+    <input type="hidden" name="hash" id="hash" value="@resultado" />
+}
