@@ -26,31 +26,45 @@ namespace processos.Controllers
         {
             try
             {
-                if (Separadores.Sep_titulo == null ||
-                    Separadores.Sep_separador == null)
+                if (Separadores.Sep_titulo == null || Separadores.Sep_separador == null)
                 {
                     return Json(new
                     {
-                        indice = "alerta".ToString(),
+                        indice = "erro".ToString(),
                         titulo = "Campos vazios".ToString(),
                         mensagem = "Todos os campos marcados com <b>(*)</b> precisam ser preenchidos.".ToString(),
                         url = "".ToString()
                     }, JsonRequestBehavior.AllowGet);
-                } else {
-                    return Json(new
+                }
+                else
+                {
+                    if (new SeparadoresModels().Crud(Separadores) == true)
                     {
-                        indice = "sucesso".ToString(),
-                        titulo = "Sucesso".ToString(),
-                        mensagem = "As informações foram salvas com sucesso.".ToString(),
-                        url = "/Separadores/Create".ToString()
-                    }, JsonRequestBehavior.AllowGet);
+                        return Json(new
+                        {
+                            indice = "sucesso".ToString(),
+                            titulo = "Sucesso".ToString(),
+                            mensagem = "Dados adicionados com sucesso".ToString(),
+                            url = "/Separadores/Create".ToString()
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        return Json(new
+                        {
+                            indice = "erro".ToString(),
+                            titulo = "Ocorreu um erro".ToString(),
+                            mensagem = "Ocorreu um erro ao tentar salvar. O sistema não pôde continuar.".ToString(),
+                            url = "".ToString()
+                        }, JsonRequestBehavior.AllowGet);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 return Json(new
                 {
-                    indice = "falha".ToString(),
+                    indice = "erro".ToString(),
                     titulo = "Ocorreu um erro".ToString(),
                     mensagem = "Erro: " + ex.ToString(),
                     url = "".ToString()

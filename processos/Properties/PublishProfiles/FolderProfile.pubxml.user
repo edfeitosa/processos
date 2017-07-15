@@ -11,7 +11,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Code/Ferramentas.cshtml">
-      <publishTime>07/10/2017 21:38:24</publishTime>
+      <publishTime>07/15/2017 19:47:56</publishTime>
     </File>
     <File Include="App_Code/Footer.cshtml">
       <publishTime>07/08/2017 22:56:20</publishTime>
@@ -20,22 +20,22 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>07/08/2017 22:22:02</publishTime>
     </File>
     <File Include="App_Code/Menu.cshtml">
-      <publishTime>07/08/2017 22:51:41</publishTime>
+      <publishTime>07/15/2017 15:01:44</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>12/13/2016 03:10:32</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>01/05/2012 17:08:46</publishTime>
+      <publishTime>05/01/2012 17:08:46</publishTime>
     </File>
     <File Include="bin/MySql.Data.dll">
       <publishTime>06/17/2016 18:29:10</publishTime>
     </File>
     <File Include="bin/processos.dll">
-      <publishTime>07/10/2017 23:13:20</publishTime>
+      <publishTime>07/15/2017 19:46:08</publishTime>
     </File>
     <File Include="bin/processos.pdb">
-      <publishTime>07/10/2017 23:13:20</publishTime>
+      <publishTime>07/15/2017 19:46:08</publishTime>
     </File>
     <File Include="bin/pt-br/System.Web.Helpers.resources.dll">
       <publishTime>01/28/2015 04:04:40</publishTime>
@@ -179,7 +179,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>07/08/2017 22:29:09</publishTime>
     </File>
     <File Include="Content/style.css">
-      <publishTime>07/10/2017 22:17:52</publishTime>
+      <publishTime>07/15/2017 19:42:56</publishTime>
     </File>
     <File Include="Fonts/Bebas/bebasneue-webfont.eot">
       <publishTime>07/08/2017 22:36:21</publishTime>
@@ -271,11 +271,17 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     <File Include="Imagens/alerta.png">
       <publishTime>07/10/2017 19:46:52</publishTime>
     </File>
+    <File Include="Imagens/arquivos.png">
+      <publishTime>07/15/2017 14:26:13</publishTime>
+    </File>
     <File Include="Imagens/bgModal.png">
       <publishTime>07/10/2017 19:46:52</publishTime>
     </File>
     <File Include="Imagens/busca.png">
       <publishTime>07/10/2017 19:46:52</publishTime>
+    </File>
+    <File Include="Imagens/buscar.png">
+      <publishTime>07/15/2017 14:57:42</publishTime>
     </File>
     <File Include="Imagens/cancelar-menor.png">
       <publishTime>07/10/2017 19:46:52</publishTime>
@@ -289,6 +295,9 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     <File Include="Imagens/documentos.png">
       <publishTime>07/10/2017 19:46:52</publishTime>
     </File>
+    <File Include="Imagens/duvida.png">
+      <publishTime>07/15/2017 16:15:37</publishTime>
+    </File>
     <File Include="Imagens/editar-menor.png">
       <publishTime>07/10/2017 19:46:52</publishTime>
     </File>
@@ -296,16 +305,19 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>07/10/2017 19:46:52</publishTime>
     </File>
     <File Include="Imagens/erro.png">
-      <publishTime>07/10/2017 19:46:52</publishTime>
+      <publishTime>07/15/2017 16:15:37</publishTime>
     </File>
     <File Include="Imagens/fechar.png">
       <publishTime>07/10/2017 19:46:52</publishTime>
     </File>
     <File Include="Imagens/home.png">
-      <publishTime>07/10/2017 19:46:52</publishTime>
+      <publishTime>07/15/2017 19:44:42</publishTime>
     </File>
     <File Include="Imagens/imprimir.png">
       <publishTime>07/10/2017 19:46:52</publishTime>
+    </File>
+    <File Include="Imagens/informacao.png">
+      <publishTime>07/15/2017 16:15:37</publishTime>
     </File>
     <File Include="Imagens/lixeira-menor.png">
       <publishTime>07/10/2017 19:46:52</publishTime>
@@ -316,6 +328,9 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     <File Include="Imagens/loader.gif">
       <publishTime>07/10/2017 19:46:52</publishTime>
     </File>
+    <File Include="Imagens/novo.png">
+      <publishTime>07/15/2017 19:45:55</publishTime>
+    </File>
     <File Include="Imagens/pdf.png">
       <publishTime>07/10/2017 19:46:52</publishTime>
     </File>
@@ -323,19 +338,28 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>07/10/2017 19:46:52</publishTime>
     </File>
     <File Include="Imagens/sair.png">
-      <publishTime>07/10/2017 19:46:52</publishTime>
+      <publishTime>07/15/2017 14:59:47</publishTime>
     </File>
     <File Include="Imagens/salvar.png">
-      <publishTime>07/10/2017 19:46:52</publishTime>
+      <publishTime>07/15/2017 19:44:42</publishTime>
     </File>
     <File Include="Imagens/senha.png">
       <publishTime>07/10/2017 19:46:52</publishTime>
     </File>
+    <File Include="Imagens/separadores.png">
+      <publishTime>07/15/2017 14:15:44</publishTime>
+    </File>
     <File Include="Imagens/sucesso.png">
-      <publishTime>07/10/2017 19:46:52</publishTime>
+      <publishTime>07/15/2017 16:15:37</publishTime>
     </File>
     <File Include="Imagens/topo.png">
       <publishTime>07/10/2017 19:46:52</publishTime>
+    </File>
+    <File Include="Imagens/tribunais.png">
+      <publishTime>07/15/2017 14:56:18</publishTime>
+    </File>
+    <File Include="Imagens/usuarios.png">
+      <publishTime>07/15/2017 14:29:15</publishTime>
     </File>
     <File Include="Imagens/visualizar.png">
       <publishTime>07/10/2017 19:46:52</publishTime>
@@ -431,7 +455,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>07/10/2017 19:55:51</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>07/06/2017 23:04:34</publishTime>
+      <publishTime>06/07/2017 23:04:34</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>06/30/2017 23:35:11</publishTime>
@@ -452,28 +476,28 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>06/30/2017 23:35:09</publishTime>
     </File>
     <File Include="Scripts/System/modal.js">
-      <publishTime>07/10/2017 19:44:23</publishTime>
+      <publishTime>07/15/2017 19:39:50</publishTime>
     </File>
     <File Include="Scripts/System/separadores.js">
-      <publishTime>07/10/2017 23:10:39</publishTime>
+      <publishTime>07/15/2017 19:19:09</publishTime>
     </File>
     <File Include="Scripts/System/_padrao.js">
-      <publishTime>07/10/2017 22:01:21</publishTime>
+      <publishTime>07/15/2017 19:41:56</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>07/01/2017 00:12:05</publishTime>
+      <publishTime>07/15/2017 15:03:08</publishTime>
     </File>
     <File Include="Views/Separadores/Create.cshtml">
       <publishTime>07/10/2017 23:07:06</publishTime>
     </File>
     <File Include="Views/Separadores/Index.cshtml">
-      <publishTime>07/01/2017 00:11:59</publishTime>
+      <publishTime>01/07/2017 00:11:59</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/10/2017 21:59:57</publishTime>
+      <publishTime>07/15/2017 17:29:45</publishTime>
     </File>
     <File Include="Views/web.config">
-      <publishTime>06/30/2017 22:26:29</publishTime>
+      <publishTime>07/13/2017 22:48:53</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>06/30/2017 23:04:01</publishTime>

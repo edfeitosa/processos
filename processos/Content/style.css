@@ -52,6 +52,8 @@ body {
 
 a, a:hover, a:visited {
     text-decoration: none;
+    color: #666;
+    font-family: latoregular;
 }
 
 .container {
@@ -61,7 +63,6 @@ a, a:hover, a:visited {
 }
 
 .navigation {
-    font-family: 'bebas_neueregular';
     width: 99.3%;
     padding: 10px 0px 10px 10px;
     background-color: #005396;
@@ -73,7 +74,7 @@ a, a:hover, a:visited {
 }
 
     .navigation a {
-        padding: 10px 18px 10px 0px;
+        padding: 10px 25px 10px 0px;
         color: #fff;
         font-size: 1rem;
         text-decoration: none;
@@ -133,8 +134,8 @@ a, a:hover, a:visited {
     margin-left: -16px;
 }
 
-/* modal falha */
-.modalFalha {
+/* modal */
+.modal {
     position: fixed;
     width: 260px;
     height: 180px;
@@ -144,24 +145,27 @@ a, a:hover, a:visited {
     left: 50%;
     top: 50%;
     margin: -150px 0px 0px -145px;
-    border: 4px solid #d20000;
+    border: 4px solid #999;
     border-radius: 5px;
     overflow: hidden;
 }
 
-#iconeFalha {
+#icone {
     float: left;
     width: 48px;
     height: 48px;
-    background-image: url(../Imagens/cancelar.png);
     background-size: 48px;
     background-repeat: no-repeat;
     margin-right: 10px;
 }
 
-#cabecalhoFalha {
-    font-family: 'bebas_neueregular';
-    background-color: #d20000;
+#icone img {
+    width: 100%;
+}
+
+#cabecalho {
+    font-family: 'latoblack';
+    background-color: #999;
     color: #fff;
     font-size: 1.25rem;
     font-weight: bold;
@@ -170,119 +174,8 @@ a, a:hover, a:visited {
     margin: -11px 0px 10px -11px;
 }
 
-/* modal alerta */
-.modalAlerta {
-    position: fixed;
-    width: 260px;
-    height: 180px;
-    padding: 10px;
-    background-color: #fff;
-    z-index: 700;
-    left: 50%;
-    top: 50%;
-    margin: -154px 0px 0px -146px;
-    border: 4px solid #D5A210;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-#iconeAlerta {
-    float: left;
-    width: 48px;
-    height: 48px;
-    background-image: url(../Imagens/alerta.png);
-    background-size: 48px;
-    background-repeat: no-repeat;
-    margin-right: 10px;
-}
-
-#cabecalhoAlerta {
-    font-family: 'bebas_neueregular';
-    background-color: #D5A210;
-    color: #fff;
-    font-size: 1.25rem;
-    font-weight: bold;
-    padding: 10px;
-    width: 300px;
-    margin: -11px 0px 10px -11px;
-}
-
-/* modal sucesso */
-.modalSucesso {
-    position: fixed;
-    width: 260px;
-    height: 180px;
-    padding: 10px;
-    background-color: #fff;
-    z-index: 700;
-    left: 50%;
-    top: 50%;
-    margin: -154px 0px 0px -146px;
-    border: 4px solid #248909;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-#iconeSucesso {
-    float: left;
-    width: 48px;
-    height: 48px;
-    background-image: url(../Imagens/sucesso.png);
-    background-size: 48px;
-    background-repeat: no-repeat;
-    margin-right: 10px;
-}
-
-#cabecalhoSucesso {
-    font-family: 'bebas_neueregular';
-    background-color: #248909;
-    color: #fff;
-    font-size: 1.25rem;
-    font-weight: bold;
-    padding: 10px;
-    width: 300px;
-    margin: -11px 0px 10px -11px;
-}
-
-/* modal pergunta */
-.modalPergunta {
-    position: fixed;
-    width: 260px;
-    height: 180px;
-    padding: 10px;
-    background-color: #fff;
-    z-index: 700;
-    left: 50%;
-    top: 50%;
-    margin: -154px 0px 0px -146px;
-    border: 4px solid #255589;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-#iconePergunta {
-    float: left;
-    width: 48px;
-    height: 48px;
-    background-image: url(../Imagens/pergunta.png);
-    background-size: 48px;
-    background-repeat: no-repeat;
-    margin-right: 10px;
-}
-
-#cabecalhoPergunta {
-    font-family: 'bebas_neueregular';
-    background-color: #255589;
-    color: #fff;
-    font-size: 1.25rem;
-    font-weight: bold;
-    padding: 10px;
-    width: 300px;
-    margin: -11px 0px 10px -11px;
-}
-
-.modalFalha .ok, .modalAlerta .ok, .modalSucesso .ok, .modalPergunta .ok {
-    font-family: 'bebas_neueregular';
+.modal .ok {
+    font-family: 'latoblack';
     position: absolute;
     width: 80px;
     padding: 5px 10px 5px 10px;
@@ -300,12 +193,17 @@ a, a:hover, a:visited {
     background-image: linear-gradient(to bottom, #fff, #ccc 130%);
 }
 
-/* texto modais */
-.respostaFalha, .respostaAlerta, .respostaSucesso, .respostaPergunta {
+.resposta {
     font-size: .8125rem;
     text-align: left;
     height: 110px;
     overflow: hidden;
+}
+
+.sombra {
+    box-shadow: 0px 0px 7px #333;
+    -webkit-box-shadow: 0px 0px 7px #333;
+    -moz-box-shadow: 0px 0px 7px #333;
 }
 
 /* barra de ferramentas */
@@ -336,3 +234,15 @@ a, a:hover, a:visited {
             _border: 0px !important;
             cursor: pointer;
         }
+
+/* ícones home */
+.icone {
+    float: left;
+    margin: 20px 10px 0px 0px;
+    width: 150px;
+    height: 110px;
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+    font-family: 'latoregular';
+}

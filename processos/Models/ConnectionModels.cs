@@ -9,7 +9,7 @@ namespace processos.Models
     {
         public string Connection()
         {
-            return "Persist Security Info=False;server=Localhost;database=webservice;uid=root;pwd=".ToString();
+            return "Database=processos; Data Source=localhost; User Id=root; Password=; pooling=false".ToString();
         }
     }
 }

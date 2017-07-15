@@ -13,28 +13,10 @@ function Create() {
                 data: {
                     Sep_titulo: jQuery("#Sep_titulo").val(),
                     Sep_separador: jQuery("#Sep_separador").val(),
-                    acao: "create"
+                    Action: "create"
                 },
                 success: function (retorno) {
-                    if (retorno.indice == "sucesso") {
-                        if (retorno.url == "") {
-                            modalSucesso(retorno.titulo, retorno.mensagem, "");
-                        } else {
-                            modalSucesso(retorno.titulo, retorno.mensagem, "http://" + caminhoAbsoluto() + "" + retorno.url);
-                        }
-                    } else if (retorno.indice == "alerta") {
-                        if (retorno.url == "") {
-                            modalAlerta(retorno.titulo, retorno.mensagem, "");
-                        } else {
-                            modalAlerta(retorno.titulo, retorno.mensagem, "http://" + caminhoAbsoluto() + "" + retorno.url);
-                        }
-                    } else {
-                        if (retorno.url == "") {
-                            modalFalha(retorno.titulo, retorno.mensagem, "");
-                        } else {
-                            modalFalha(retorno.titulo, retorno.mensagem, "http://" + caminhoAbsoluto() + "" + retorno.url);
-                        }
-                    }
+                    Modal(retorno.indice, retorno.titulo, retorno.mensagem, retorno.url, View());
                 }
             });
         });
