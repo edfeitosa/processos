@@ -93,7 +93,6 @@
   <ItemGroup>
     <Content Include="Content\forms.css" />
     <Content Include="Content\style.css" />
-    <Content Include="Fonts\Bebas\bebasneue-webfont.svg" />
     <Content Include="Fonts\Lato\generator_config.txt" />
     <Content Include="Fonts\Lato\lato-black-webfont.svg" />
     <Content Include="Fonts\Lato\lato-light-webfont.svg" />
@@ -114,16 +113,13 @@
     <Content Include="Fonts\Lato\lato-regular-webfont.ttf" />
     <Content Include="Fonts\Lato\lato-regular-webfont.woff" />
     <Content Include="Fonts\Lato\lato-regular-webfont.woff2" />
-    <Content Include="Fonts\Bebas\bebasneue-webfont.eot" />
-    <Content Include="Fonts\Bebas\bebasneue-webfont.ttf" />
-    <Content Include="Fonts\Bebas\bebasneue-webfont.woff" />
-    <Content Include="Fonts\Bebas\bebasneue-webfont.woff2" />
     <Content Include="App_Code\Ferramentas.cshtml" />
     <Content Include="Imagens\arquivos.png" />
     <Content Include="Imagens\bgModal.png" />
     <Content Include="Imagens\buscar.png" />
     <Content Include="Imagens\duvida.png" />
     <Content Include="Imagens\erro.png" />
+    <Content Include="Imagens\fechar.png" />
     <Content Include="Imagens\home.png" />
     <Content Include="Imagens\informacao.png" />
     <Content Include="Imagens\loader.gif" />
@@ -136,6 +132,7 @@
     <Content Include="Imagens\tribunais.png" />
     <Content Include="Imagens\usuarios.png" />
     <Content Include="Scripts\Jquery-1.8.2.js" />
+    <Content Include="Scripts\System\arquivos.js" />
     <Content Include="Scripts\System\modal.js" />
     <Content Include="Scripts\System\separadores.js" />
     <Content Include="Scripts\System\_padrao.js" />
@@ -143,13 +140,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ArquivosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\SeparadoresController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ArquivosModels.cs" />
     <Compile Include="Models\ConnectionModels.cs" />
-    <Compile Include="Models\SeparadoresModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -158,9 +155,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Separadores\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <Content Include="Views\Separadores\Create.cshtml" />
+    <Content Include="Views\Arquivos\Index.cshtml" />
+    <Content Include="Views\Arquivos\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,12 @@
+﻿<h1>Novo Arquivo</h1>
+
+@Ferramentas.Create(true, "Arquivos", true)
+
+<p>Todos os campos marcados com <b>(*)</b> precisam ser preenchidos.</p>
+
+@Forms.Textarea("Conteúdo do arquivo", "conteudo", "", "textarea", "height: 300px;")
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/System/arquivos.js")"></script>
+<script type="text/javascript">
+    Create();
+</script>

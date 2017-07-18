@@ -27,14 +27,6 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'bebas_neueregular';
-    src: url('../Fonts/Bebas/bebasneue-webfont.eot');
-    src: url('../Fonts/Bebas/bebasneue-webfont.eot?#iefix') format('embedded-opentype'), url('../Fonts/Bebas/bebasneue-webfont.woff2') format('woff2'), url('../Fonts/Bebas/bebasneue-webfont.woff') format('woff'), url('../Fonts/Bebas/bebasneue-webfont.ttf') format('truetype'), url('../Fonts/Bebas/bebasneue-webfont.svg#bebas_neueregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
 p {
     margin: 10px 0px;
 }
@@ -78,6 +70,7 @@ a, a:hover, a:visited {
         color: #fff;
         font-size: 1rem;
         text-decoration: none;
+        font-weight: bold;
     }
 
 .footer {

@@ -6,31 +6,29 @@ using MySql.Data.MySqlClient;
 
 namespace processos.Models
 {
-    public class SeparadoresModels
+    public class ArquivosModels
     {
-        public int Sep_id { get; set; }
-        public string Sep_titulo { get; set; }
-        public string Sep_separador { get; set; }
+        public int Arq_id { get; set; }
+        public string Arq_conteudo { get; set; }
         public string Action { get; set; }
 
         MySqlConnection db = new MySqlConnection(new ConnectionModels().Connection());
 
-        private string Actions(SeparadoresModels separadores)
+        private string Actions(ArquivosModels arquivos)
         {
-            if (separadores.Action == "create".ToString())
+            if (arquivos.Action == "create".ToString())
             {
-                return "INSERT INTO tbl_separadores (sep_titulo, sep_separador) " +
-                    "VALUES ('" + separadores.Sep_titulo + "', '" + separadores.Sep_separador + "')".ToString();
+                return "INSERT INTO tbl_arquivos (arq_conteudo) VALUES ('" + arquivos.Arq_conteudo + "')".ToString();
             }
-            else if (separadores.Action == "read".ToString())
-            {
-                return "".ToString();
-            }
-            else if (separadores.Action == "update".ToString())
+            else if (arquivos.Action == "read".ToString())
             {
                 return "".ToString();
             }
-            else if (separadores.Action == "delete".ToString())
+            else if (arquivos.Action == "update".ToString())
+            {
+                return "".ToString();
+            }
+            else if (arquivos.Action == "delete".ToString())
             {
                 return "".ToString();
             }
@@ -40,9 +38,9 @@ namespace processos.Models
             }
         }
 
-        public bool Crud(SeparadoresModels separadores)
+        public bool Crud(ArquivosModels arquivos)
         {
-            MySqlCommand query = new MySqlCommand(this.Actions(separadores), db);
+            MySqlCommand query = new MySqlCommand(this.Actions(arquivos), db);
             try
             {
                 db.Open();
