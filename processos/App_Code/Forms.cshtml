@@ -107,9 +107,8 @@
 }
 
 <!-- Select a partir de uma lista dinâmica com dados do banco -->
-@helper Select(string titulo, string nome, string valor, string classe, string style, string view, string nomeValue, string nomeOption, string primeiraOpcao, string outros, string functionView)
+@helper Select(string titulo, string nome, string valor, string classe, string style, string view, string nomeValue, string nomeOption, string primeiraOpcao, string functionView)
 {
-    <!-- Carrega via ajax a lista de setores do hospital -->
     <script type="text/javascript">
         jQuery(document).ready(function () {
             var view = "@view";
@@ -117,14 +116,13 @@
             var value = "@valor";
             var acao = "listar";
             var primeiraOpcao = "@primeiraOpcao";
-            var outros = "@outros";
             jQuery.ajax({
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 type: "get",
                 url: "http://" + caminhoAbsoluto() + "/" + view + "/" + functionView,
                 data: {
-                    acao: acao
+                    Action: acao
                 },
                 success: function (dados) {
                     var qtd = dados.length;
@@ -145,10 +143,6 @@
                                 retorno += '<option value="' + dados[i].@nomeValue + '">' + dados[i].@nomeOption + '</option>';
                             }
                         }
-                    }
-                    // Adiciona o item outros
-                    if (outros == "sim") {
-                        retorno += '<option value="00">Outros</option>';
                     }
                     // Carrega as informações de produtos na div informada
                     jQuery('#@nome').html(retorno);

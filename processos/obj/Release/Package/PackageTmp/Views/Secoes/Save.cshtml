@@ -1,0 +1,25 @@
+﻿<h2>Adicionar/Editar Tribunais</h2>
+@Ferramentas.Save(true, "Secoes", true)
+
+@{ 
+    string id;
+    if (Request.QueryString["id"] == null)
+    {
+        id = "0";
+    }
+    else
+    {
+        id = Request.QueryString["id"];
+    }
+}
+
+<p>Todos os campos marcados com <b>(*)</b> precisam ser preenchidos.</p>
+
+@Forms.Text("Seção (*)", "sec_titulo", "Informe o nome da seção", "", "input", "100", "")
+@Forms.Select("Pertence a algum seção?", "sec_idPai", "", "select", "", "Secoes", "sec_id", "sec_titulo", "-- Nenhuma --", "Listar")
+@Forms.Hidden("sec_id", id)
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/System/secoes.js")"></script>
+<script type="text/javascript">
+    Save();
+</script>

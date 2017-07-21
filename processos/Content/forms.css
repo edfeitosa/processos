@@ -4,30 +4,28 @@
 */
 
 /* Estilo básico dos Forms */
-.exibicaoTexto
-{
+.exibicaoTexto {
     padding: 7px;
     font-size: .875rem;
     border-radius: 3px;
-    border: 1px solid #999;
+    border: 1px solid #ddd;
     background-color: #fff;
-    -moz-box-shadow: inset 2px 2px 4px #ccc;
-    -webkit-box-shadow: inset 2px 2px 4px #ccc;
-    box-shadow: inset 2px 2px 4px #ccc;
+    -moz-box-shadow: inset 2px 2px 4px #eee;
+    -webkit-box-shadow: inset 2px 2px 4px #eee;
+    box-shadow: inset 2px 2px 4px #eee;
     width: 98.5%;
     margin-bottom: 15px;
 }
 
-.select
-{
+.select {
     padding: 6px 7px 6px 7px;
     font-size: .875rem;
     border-radius: 3px;
-    border: 1px solid #999;
+    border: 1px solid #ddd;
     background-color: #fff;
-    -moz-box-shadow: inset 2px 2px 4px #ccc;
-    -webkit-box-shadow: inset 2px 2px 4px #ccc;
-    box-shadow: inset 2px 2px 4px #ccc;
+    -moz-box-shadow: inset 2px 2px 4px #eee;
+    -webkit-box-shadow: inset 2px 2px 4px #eee;
+    box-shadow: inset 2px 2px 4px #eee;
     width: 100%;
     margin-bottom: 10px;
 }
@@ -37,11 +35,11 @@
     padding: 6px 7px 6px 7px;
     font-size: .875rem;
     border-radius: 3px;
-    border: 1px solid #999;
+    border: 1px solid #ddd;
     background-color: #fff;
-    -moz-box-shadow: inset 2px 2px 4px #ccc;
-    -webkit-box-shadow: inset 2px 2px 4px #ccc;
-    box-shadow: inset 2px 2px 4px #ccc;
+    -moz-box-shadow: inset 2px 2px 4px #eee;
+    -webkit-box-shadow: inset 2px 2px 4px #eee;
+    box-shadow: inset 2px 2px 4px #eee;
     width: 52%;
     margin-bottom: 10px;
 }
@@ -51,12 +49,12 @@
     padding: 7px;
     font-size: .875rem;
     border-radius: 3px;
-    border: 1px solid #999;
+    border: 1px solid #ddd;
     background-color: #fff;
     width: 98.4%;
-    -moz-box-shadow: inset 2px 2px 4px #ccc;
-    -webkit-box-shadow: inset 2px 2px 4px #ccc;
-    box-shadow: inset 2px 2px 4px #ccc;
+    -moz-box-shadow: inset 2px 2px 4px #eee;
+    -webkit-box-shadow: inset 2px 2px 4px #eee;
+    box-shadow: inset 2px 2px 4px #eee;
 	margin-bottom: 10px;
 }
 
@@ -65,12 +63,12 @@
     padding: 7px;
     font-size: .875rem;
     border-radius: 3px;
-    border: 1px solid #999;
+    border: 1px solid #ddd;
     background-color: #fff;
     width: 50%;
-    -moz-box-shadow: inset 2px 2px 4px #ccc;
-    -webkit-box-shadow: inset 2px 2px 4px #ccc;
-    box-shadow: inset 2px 2px 4px #ccc;
+    -moz-box-shadow: inset 2px 2px 4px #eee;
+    -webkit-box-shadow: inset 2px 2px 4px #eee;
+    box-shadow: inset 2px 2px 4px #eee;
 	margin-bottom: 10px;
 }
 
@@ -79,13 +77,13 @@
     padding: 7px;
     font-size: .875rem;
     border-radius: 3px;
-    border: 1px solid #999;
+    border: 1px solid #ddd;
     background-color: #fff;
     width: 98.8%;
     height: 150px;
-    -moz-box-shadow: inset 2px 2px 4px #ccc;
-    -webkit-box-shadow: inset 2px 2px 4px #ccc;
-    box-shadow: inset 2px 2px 4px #ccc;
+    -moz-box-shadow: inset 2px 2px 4px #eee;
+    -webkit-box-shadow: inset 2px 2px 4px #eee;
+    box-shadow: inset 2px 2px 4px #eee;
     resize: none;
     margin-bottom: 10px;
 }
@@ -95,13 +93,13 @@
     padding: 7px;
     font-size: .875rem;
     border-radius: 3px;
-    border: 1px solid #999;
+    border: 1px solid #ddd;
     background-color: #fff;
     width: 40%;
     height: 200px;
-    -moz-box-shadow: inset 2px 2px 4px #ccc;
-    -webkit-box-shadow: inset 2px 2px 4px #ccc;
-    box-shadow: inset 2px 2px 4px #ccc;
+    -moz-box-shadow: inset 2px 2px 4px #eee;
+    -webkit-box-shadow: inset 2px 2px 4px #eee;
+    box-shadow: inset 2px 2px 4px #eee;
     resize: none;
     margin-bottom: 10px;
 }

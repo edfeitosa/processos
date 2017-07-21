@@ -93,26 +93,10 @@
   <ItemGroup>
     <Content Include="Content\forms.css" />
     <Content Include="Content\style.css" />
-    <Content Include="Fonts\Lato\generator_config.txt" />
-    <Content Include="Fonts\Lato\lato-black-webfont.svg" />
-    <Content Include="Fonts\Lato\lato-light-webfont.svg" />
-    <Content Include="Fonts\Lato\lato-regular-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="App_Code\Menu.cshtml" />
     <Content Include="App_Code\Forms.cshtml" />
     <Content Include="App_Code\Footer.cshtml" />
-    <Content Include="Fonts\Lato\lato-black-webfont.eot" />
-    <Content Include="Fonts\Lato\lato-black-webfont.ttf" />
-    <Content Include="Fonts\Lato\lato-black-webfont.woff" />
-    <Content Include="Fonts\Lato\lato-black-webfont.woff2" />
-    <Content Include="Fonts\Lato\lato-light-webfont.eot" />
-    <Content Include="Fonts\Lato\lato-light-webfont.ttf" />
-    <Content Include="Fonts\Lato\lato-light-webfont.woff" />
-    <Content Include="Fonts\Lato\lato-light-webfont.woff2" />
-    <Content Include="Fonts\Lato\lato-regular-webfont.eot" />
-    <Content Include="Fonts\Lato\lato-regular-webfont.ttf" />
-    <Content Include="Fonts\Lato\lato-regular-webfont.woff" />
-    <Content Include="Fonts\Lato\lato-regular-webfont.woff2" />
     <Content Include="App_Code\Ferramentas.cshtml" />
     <Content Include="Imagens\arquivos.png" />
     <Content Include="Imagens\bgModal.png" />
@@ -126,15 +110,14 @@
     <Content Include="Imagens\novo.png" />
     <Content Include="Imagens\sair.png" />
     <Content Include="Imagens\salvar.png" />
-    <Content Include="Imagens\separadores.png" />
     <Content Include="Imagens\sucesso.png" />
     <Content Include="Imagens\topo.png" />
-    <Content Include="Imagens\tribunais.png" />
+    <Content Include="Imagens\secoes.png" />
     <Content Include="Imagens\usuarios.png" />
     <Content Include="Scripts\Jquery-1.8.2.js" />
     <Content Include="Scripts\System\arquivos.js" />
     <Content Include="Scripts\System\modal.js" />
-    <Content Include="Scripts\System\separadores.js" />
+    <Content Include="Scripts\System\secoes.js" />
     <Content Include="Scripts\System\_padrao.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -142,11 +125,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ArquivosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SecoesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ArquivosModels.cs" />
     <Compile Include="Models\ConnectionModels.cs" />
+    <Compile Include="Models\SecoesModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +143,8 @@
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Arquivos\Index.cshtml" />
     <Content Include="Views\Arquivos\Create.cshtml" />
+    <Content Include="Views\Secoes\Index.cshtml" />
+    <Content Include="Views\Secoes\Save.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

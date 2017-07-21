@@ -78,7 +78,7 @@
 {
     <div class="barraFerramentas">
         <div class="botao">
-            <a href="~/@view/Create">
+            <a href="~/@view/Save">
                 <img src="~/Imagens/novo.png" alt="novo" title="Adicionar novo" />
             </a>
             <br />
@@ -97,13 +97,13 @@
 }
 
 <!-- Barra de ferramentas padrão na página salvar -->
-@helper Create(bool novo, string view, bool listar)
+@helper Save(bool novo, string view, bool listar)
 {
     <div class="barraFerramentas">
         @if (novo == true)
         {
             <div class="botao">
-                <a href="~/@view/Create">
+                <a href="~/@view/Save">
                     <img src="~/Imagens/novo.png" alt="novo" title="Novo" />
                 </a>
                 <br />

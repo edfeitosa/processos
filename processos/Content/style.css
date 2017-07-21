@@ -3,30 +3,6 @@
     margin: 0px;
 }
 
-@font-face {
-    font-family: 'latoblack';
-    src: url('../Fonts/Lato/lato-black-webfont.eot');
-    src: url('../Fonts/Lato/lato-black-webfont.eot?#iefix') format('embedded-opentype'), url('../Fonts/Lato/lato-black-webfont.woff2') format('woff2'), url('../Fonts/Lato/lato-black-webfont.woff') format('woff'), url('../Fonts/Lato/lato-black-webfont.ttf') format('truetype'), url('../Fonts/Lato/lato/lato-black-webfont.svg#latoblack') format('svg');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'latolight';
-    src: url('../Fonts/Lato/lato-light-webfont.eot');
-    src: url('../Fonts/Lato/lato-light-webfont.eot?#iefix') format('embedded-opentype'), url('../Fonts/Lato/lato-light-webfont.woff2') format('woff2'), url('../Fonts/Lato/lato-light-webfont.woff') format('woff'), url('../Fonts/Lato/lato-light-webfont.ttf') format('truetype'), url('../Fonts/Lato/lato-light-webfont.svg#latolight') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'latoregular';
-    src: url('../Fonts/Lato/lato-regular-webfont.eot');
-    src: url('../Fonts/Lato/lato-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../Fonts/Lato/lato-regular-webfont.woff2') format('woff2'), url('../Fonts/Lato/lato-regular-webfont.woff') format('woff'), url('../Fonts/Lato/lato-regular-webfont.ttf') format('truetype'), url('../Fonts/Lato/lato-regular-webfont.svg#latoregular') format('svg');
-    font-style: normal;
-    font-style: normal;
-}
-
 p {
     margin: 10px 0px;
 }
@@ -37,15 +13,25 @@ p {
 }
 
 body {
-    font-family: 'latoregular';
-    font-size: 1rem;
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.75rem;
     color: #666;
 }
 
 a, a:hover, a:visited {
     text-decoration: none;
     color: #666;
-    font-family: latoregular;
+    font-family: 'Rubik', sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
 }
 
 .container {
@@ -59,7 +45,7 @@ a, a:hover, a:visited {
     padding: 10px 0px 10px 10px;
     background-color: #005396;
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     /* Internet Explorer */
     *margin-top: 80px;
     *padding: 8px 0px 11px 0px;
@@ -70,7 +56,6 @@ a, a:hover, a:visited {
         color: #fff;
         font-size: 1rem;
         text-decoration: none;
-        font-weight: bold;
     }
 
 .footer {
@@ -157,7 +142,6 @@ a, a:hover, a:visited {
 }
 
 #cabecalho {
-    font-family: 'latoblack';
     background-color: #999;
     color: #fff;
     font-size: 1.25rem;
@@ -168,7 +152,6 @@ a, a:hover, a:visited {
 }
 
 .modal .ok {
-    font-family: 'latoblack';
     position: absolute;
     width: 80px;
     padding: 5px 10px 5px 10px;
@@ -204,9 +187,9 @@ a, a:hover, a:visited {
     position: relative;
     width: 100%;
     height: 105px;
-    background-color: #f1f1f1;
+    background-color: #f8f8f8;
     color: #666;
-    border: 1px solid #999;
+    border: 1px solid #ddd;
     border-radius: 3px;
     margin: 15px 0px 15px 0px;
 }
@@ -237,5 +220,4 @@ a, a:hover, a:visited {
     text-align: center;
     font-weight: bold;
     color: #666;
-    font-family: 'latoregular';
 }
