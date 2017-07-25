@@ -10,10 +10,11 @@ function Save() {
             if (jQuery("#Sec_id").val() == "0") { var action = "create"; } else { var action = "update"; }
             jQuery.ajax({
                 type: "post",
-                url: "http://" + caminhoAbsoluto() + "/" + View() + "/Create",
+                url: "http://" + caminhoAbsoluto() + "/" + View() + "/Save",
                 data: {
-                    Sep_titulo: jQuery("#Sep_titulo").val(),
-                    Sep_separador: jQuery("#Sep_separador").val(),
+                    Sec_id: jQuery("#Sec_id").val(),
+                    Sec_idPai: jQuery("#Sec_idPai").val(),
+                    Sec_titulo: jQuery("#Sec_titulo").val(),
                     Action: action
                 },
                 success: function (retorno) {

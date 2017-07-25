@@ -66,13 +66,13 @@ namespace processos.Models
 
         private string queryListar(SecoesModels secoes)
         {
-            if (secoes.Sec_id == Convert.ToInt32(0))
+            if (secoes.Sec_id == Convert.ToInt32(0) || secoes.Action == "listar".ToString())
             {
-                return "SELECT sec_id, sec_idPai, sec_titulo FROM tbl_secoes WHERE sec_id = " + secoes.Sec_id + "".ToString();
+                return "SELECT sec_id, sec_idPai, sec_titulo FROM tbl_secoes ORDER BY sec_titulo DESC".ToString();
             }
             else
             {
-                return "SELECT sec_id, sec_idPai, sec_titulo FROM tbl_secoes ORDER BY sec_titulo DESC".ToString();
+                return "SELECT sec_id, sec_idPai, sec_titulo FROM tbl_secoes WHERE sec_id = " + secoes.Sec_id + "".ToString();
             }
         }
 

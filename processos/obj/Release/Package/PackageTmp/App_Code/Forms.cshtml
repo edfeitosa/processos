@@ -114,7 +114,6 @@
             var view = "@view";
             var functionView = "@functionView";
             var value = "@valor";
-            var acao = "listar";
             var primeiraOpcao = "@primeiraOpcao";
             jQuery.ajax({
                 dataType: "json",
@@ -122,7 +121,7 @@
                 type: "get",
                 url: "http://" + caminhoAbsoluto() + "/" + view + "/" + functionView,
                 data: {
-                    Action: acao
+                    Action: "listar"
                 },
                 success: function (dados) {
                     var qtd = dados.length;
