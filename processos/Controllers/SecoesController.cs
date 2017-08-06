@@ -9,18 +9,28 @@ namespace processos.Controllers
 {
     public class SecoesController : Controller
     {
+        // página inicial
         public ActionResult Index()
         {
             ViewBag.title = "Seções";
             return View();
         }
 
+        // lista dados
+        [HttpGet]
+        public JsonResult Read(SecoesModels secoes)
+        {
+            return Json(new SecoesModels().Read(secoes), JsonRequestBehavior.AllowGet);
+        }
+
+        // adiciona/edita dados
         public ActionResult Save()
         {
             ViewBag.title = "Adicionando/editando seções";
             return View();
         }
 
+        // salva dados
         [HttpPost]
         public ActionResult Save(SecoesModels secoes)
         {
@@ -67,12 +77,6 @@ namespace processos.Controllers
                     url = "".ToString()
                 }, JsonRequestBehavior.AllowGet);
             }
-        }
-
-        [HttpGet]
-        public JsonResult Listar(SecoesModels secoes)
-        {
-            return Json(new SecoesModels().Listar(secoes), JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -1,2 +1,25 @@
 ﻿<h2>Seções</h2>
+@{
+    string pag;
+    if (Request.QueryString["pag"] == null)
+    {
+        pag = "1";
+    }
+    else
+    {
+        pag = Request.QueryString["pag"];
+    }
+}
+
+<h3 id="mapPag"></h3>
 @Ferramentas.PadraoIndex("Secoes".ToString())
+<p>Seções cadastradas no sistema</p>
+<div id="read"></div>
+<div id="pagination"></div>
+@Forms.Hidden("Sec_id", "0")
+<script type="text/javascript" src="@Url.Content("~/Scripts/System/secoes.js")"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        Read(2, parseInt(@pag));
+    });
+</script>

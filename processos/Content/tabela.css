@@ -1,0 +1,97 @@
+﻿.tabela {
+    padding: 0px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 3px !important;
+    width: 100%;
+    font-size: 14px;
+    padding: 5px;
+}
+
+    .tabela .subInfo {
+        font-size: 0.625rem;
+    }
+
+    .tabela thead {
+        font-size: 14px;
+        font-weight: bold;
+        background-color: #f8f8f8;
+        padding: 10px 0px 10px 0px;
+    }
+
+    .tabela td {
+        height: 20px;
+    }
+
+    .tabela .celulathead {
+        padding: 10px 0px 10px 5px;
+    }
+
+    .tabela .separabotao {
+        margin: 0px 6px 0px 14px;
+    }
+
+    .tabela .celulabody {
+        padding: 10px 0px 10px 0px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .tabela .nomeusuario {
+        font-size: 14px;
+    }
+
+    .tabela .celulausuario {
+        height: 40px;
+    }
+
+    .tabela .celulausuarioinativo {
+        height: 40px;
+        background-color: #ccc;
+    }
+
+    .tabela .alinhamento {
+        vertical-align: top;
+    }
+
+    .tabela .subtipo {
+        float: left;
+        padding: 7px 3px 3px 7px;
+        background-color: #EDF1F3;
+        width: 95%;
+        text-align: left;
+        margin: 3px 0px 3px 0px;
+    }
+
+    .tabela .separabotaomenor {
+        margin-right: 5px;
+    }
+
+    .tabela .celulacentralizar {
+        text-align: center;
+    }
+
+    .tabela .paddingleft {
+        padding-left: 5px;
+    }
+
+    .tabela .nopaddingleft {
+        background-color: #fff;
+        padding: 10px 10px 10px 0px;
+        border-bottom: 1px solid #b8c9d1;
+    }
+
+    .tabela img {
+        width: 32px;
+    }
+
+.page {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 8px 5px;
+    width: 15px;
+    margin: 10px 5px 10px 0px;
+    background-color: #f8f8f8;
+    float: left;
+    text-align: center;
+    font-weight: 500;
+}

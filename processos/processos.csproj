@@ -93,6 +93,7 @@
   <ItemGroup>
     <Content Include="Content\forms.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\tabela.css" />
     <Content Include="Global.asax" />
     <Content Include="App_Code\Menu.cshtml" />
     <Content Include="App_Code\Forms.cshtml" />
@@ -102,10 +103,12 @@
     <Content Include="Imagens\bgModal.png" />
     <Content Include="Imagens\buscar.png" />
     <Content Include="Imagens\duvida.png" />
+    <Content Include="Imagens\editar.png" />
     <Content Include="Imagens\erro.png" />
     <Content Include="Imagens\fechar.png" />
     <Content Include="Imagens\home.png" />
     <Content Include="Imagens\informacao.png" />
+    <Content Include="Imagens\lixeira.png" />
     <Content Include="Imagens\loader.gif" />
     <Content Include="Imagens\novo.png" />
     <Content Include="Imagens\sair.png" />
