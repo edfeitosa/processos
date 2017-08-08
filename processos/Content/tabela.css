@@ -95,3 +95,9 @@
     text-align: center;
     font-weight: 500;
 }
+
+.pageAct {
+    border: 1px solid #ffdd7f;
+    background-color: #ffeebe;
+    color: #c08d00;
+}

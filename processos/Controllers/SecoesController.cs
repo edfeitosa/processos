@@ -58,12 +58,21 @@ namespace processos.Controllers
                 }
                 else
                 {
+                    string url;
+                    if (secoes.Sec_id == 0)
+                    {
+                        url = "/Secoes/Save".ToString();
+                    }
+                    else
+                    {
+                        url = "/Secoes/Save?id=" + secoes.Sec_id.ToString();
+                    }
                     return Json(new
                     {
                         indice = "sucesso".ToString(),
                         titulo = "Sucesso".ToString(),
                         mensagem = "Dados adicionados com sucesso.".ToString(),
-                        url = "/Secoes/Save".ToString()
+                        url = url
                     }, JsonRequestBehavior.AllowGet);
                 }
             }

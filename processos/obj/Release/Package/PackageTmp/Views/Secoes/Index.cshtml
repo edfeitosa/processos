@@ -1,5 +1,4 @@
-﻿<h2>Seções</h2>
-@{
+﻿@{
     string pag;
     if (Request.QueryString["pag"] == null)
     {
@@ -11,6 +10,8 @@
     }
 }
 
+<h2>Seções</h2>
+
 <h3 id="mapPag"></h3>
 @Ferramentas.PadraoIndex("Secoes".ToString())
 <p>Seções cadastradas no sistema</p>
@@ -20,6 +21,6 @@
 <script type="text/javascript" src="@Url.Content("~/Scripts/System/secoes.js")"></script>
 <script type="text/javascript">
     jQuery(document).ready(function () {
-        Read(2, parseInt(@pag));
+        Read(5, parseInt(@pag));
     });
 </script>

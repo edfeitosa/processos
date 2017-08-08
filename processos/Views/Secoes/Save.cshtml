@@ -1,7 +1,4 @@
-﻿<h2>Adicionar/Editar Tribunais</h2>
-@Ferramentas.Save(true, "Secoes", true)
-
-@{ 
+﻿@{
     string id;
     if (Request.QueryString["id"] == null)
     {
@@ -13,6 +10,9 @@
     }
 }
 
+<h2 id="titulo">Adicionar/Editar Tribunais</h2>
+@Ferramentas.Save(true, "Secoes", true)
+
 <p>Todos os campos marcados com <b>(*)</b> precisam ser preenchidos.</p>
 
 @Forms.Text("Seção (*)", "Sec_titulo", "Informe o nome da seção", "", "input", "100", "")
@@ -22,4 +22,5 @@
 <script type="text/javascript" src="@Url.Content("~/Scripts/System/secoes.js")"></script>
 <script type="text/javascript">
     Save();
+    ReadGet();
 </script>

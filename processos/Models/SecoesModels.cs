@@ -23,13 +23,10 @@ namespace processos.Models
             {
                 return "INSERT INTO tbl_secoes (sec_idPai, sec_titulo) VALUES (" + secoes.Sec_idPai + ", '" + secoes.Sec_titulo + "')".ToString();
             }
-            else if (secoes.Action == "read".ToString())
-            {
-                return "".ToString();
-            }
             else if (secoes.Action == "update".ToString())
             {
-                return "".ToString();
+                return "UPDATE tbl_secoes SET sec_idPai = " + secoes.Sec_idPai + ", sec_titulo = '" + secoes.Sec_titulo + "' " +
+                    "WHERE sec_id = " + secoes.Sec_id + "".ToString();
             }
             else if (secoes.Action == "delete".ToString())
             {

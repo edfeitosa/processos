@@ -7,7 +7,7 @@ function Save() {
     jQuery(document).ready(function () {
         jQuery("#salvar").live("click", function () {
             jQuery("#bgModal").fadeIn();
-            if (jQuery("#Sec_id").val() === "0") { let action = "create"; } else { let action = "update"; }
+            if (jQuery("#Sec_id").val() === "0") { var action = "create"; } else { var action = "update"; }
             jQuery.ajax({
                 type: "post",
                 url: "http://" + caminhoAbsoluto() + "/" + View() + "/Save",
@@ -25,6 +25,7 @@ function Save() {
     });
 }
 
+// total de itens
 function Total() {
     if (jQuery("#Sec_id").val() == "0") {
         var total;
@@ -79,14 +80,18 @@ function Read(regPagina = 10, page = 1) {
                 retorno += '</thead>';
                 for (i = 0; i < qtd; i++) {
                     retorno += '<tr>';
-                    retorno += '<td class="celulabody paddingleft">' + dados[i].Sec_titulo + '</td>';
+                    retorno += '<td class="celulabody paddingleft">';
+                    retorno += '<a href="http://' + caminhoAbsoluto() + '/' + View() + '/Save?id=' + dados[i].Sec_id + '">';
+                    retorno += dados[i].Sec_titulo;
+                    retorno += '</a>';
+                    retorno += '</td>';
                     retorno += '<td class="celulabody celulacentralizar">';
                     retorno += '<a href="http://' + caminhoAbsoluto() + '/' + View() + '/Save?id=' + dados[i].Sec_id + '">';
                     retorno += '<img src="http://' + caminhoAbsoluto() + '/Imagens/secoes.png" border="0" title="Editar item" class="separabotao" />';
                     retorno += '</a>';
                     retorno += '</td>';
                     retorno += '<td class="celulabody celulacentralizar">';
-                    retorno += '<a href="http://' + caminhoAbsoluto() + '/Reserva/Index?fun_id=' + dados[i].Sec_id + '&fun_nome=' + dados[i].Sec_titulo + '">';
+                    retorno += '<a href="http://' + caminhoAbsoluto() + '/' + View() + '/Save?id=' + dados[i].Sec_id + '">';
                     retorno += '<img src="http://' + caminhoAbsoluto() + '/Imagens/editar.png" border="0" title="Cadastro de reserva" style="cursor: pointer;" class="separabotao" id="' + dados[i].Sec_id + '" />';
                     retorno += '</a>';
                     retorno += '</td>';
@@ -100,11 +105,15 @@ function Read(regPagina = 10, page = 1) {
                 jQuery("#read").html(retorno);
                 // paginação
                 var total = Total();
-                var numPagina = Math.round(total / regPagina);
+                var numPagina = Math.ceil(total / regPagina);
                 var paginas = "";
                 for (var j = 1; j < numPagina + 1; j++) {
                     paginas += "<a href='http://" + caminhoAbsoluto() + "/" + View() + "/Index?pag=" + j + "'>";
-                    paginas += "<div class='page'>" + j + "</div>";
+                    if (page == j) {
+                        paginas += "<div class='page pageAct'>" + j + "</div>";
+                    } else {
+                        paginas += "<div class='page'>" + j + "</div>";
+                    }
                     paginas += "</a>";
                 }
                 jQuery("#pagination").html(paginas);
@@ -113,4 +122,32 @@ function Read(regPagina = 10, page = 1) {
             }
         }
     });
+}
+
+// seleciona item por Id
+function ReadGet() {
+    if (jQuery("#Sec_id").val() !== "0") {
+        setTimeout(function () {
+            jQuery.ajax({
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                type: "get",
+                url: "http://" + caminhoAbsoluto() + "/" + View() + "/Read",
+                data: {
+                    Sec_id: jQuery("#Sec_id").val()
+                },
+                success: function (dados) {
+                    var qtd = dados.length;
+                    var retorno = "";
+                    if (qtd > 0) {
+                        for (i = 0; i < qtd; i++) {
+                            jQuery("#Sec_titulo").val(dados[i].Sec_titulo);
+                            jQuery("#Sec_idPai").val(dados[i].Sec_idPai);
+                            jQuery("#titulo").html(dados[i].Sec_titulo);
+                        }
+                    }
+                }
+            });
+        }, 200);
+    }
 }
