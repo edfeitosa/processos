@@ -9,7 +9,6 @@ namespace processos.Models
     public class SecoesModels
     {
         public int Sec_id { get; set; }
-        public int Sec_idPai { get; set; }
         public string Sec_titulo { get; set; }
         public string Action { get; set; }
         public int Total { get; set; }
@@ -21,16 +20,16 @@ namespace processos.Models
         {
             if (secoes.Action == "create".ToString())
             {
-                return "INSERT INTO tbl_secoes (sec_idPai, sec_titulo) VALUES (" + secoes.Sec_idPai + ", '" + secoes.Sec_titulo + "')".ToString();
+                return "INSERT INTO tbl_secoes (sec_titulo) VALUES ('" + secoes.Sec_titulo + "')".ToString();
             }
             else if (secoes.Action == "update".ToString())
             {
-                return "UPDATE tbl_secoes SET sec_idPai = " + secoes.Sec_idPai + ", sec_titulo = '" + secoes.Sec_titulo + "' " +
+                return "UPDATE tbl_secoes SET sec_titulo = '" + secoes.Sec_titulo + "' " +
                     "WHERE sec_id = " + secoes.Sec_id + "".ToString();
             }
             else if (secoes.Action == "delete".ToString())
             {
-                return "".ToString();
+                return "DELETE FROM tbl_secoes WHERE sec_id = " + secoes.Sec_id.ToString();
             }
             else
             {
@@ -67,7 +66,7 @@ namespace processos.Models
         {
             if (secoes.Sec_id == Convert.ToInt32(0) || secoes.Action == "listar".ToString())
             {
-                return "SELECT sec_id, sec_idPai, sec_titulo " +
+                return "SELECT sec_id, sec_titulo " +
                     "FROM tbl_secoes ORDER BY sec_titulo ASC " + secoes.Pagination + "".ToString();
             }
             else if (secoes.Action == "total".ToString())
@@ -76,7 +75,7 @@ namespace processos.Models
             }
             else
             {
-                return "SELECT sec_id, sec_idPai, sec_titulo " +
+                return "SELECT sec_id, sec_titulo " +
                     "FROM tbl_secoes WHERE sec_id = " + secoes.Sec_id + "".ToString();
             }
         }
@@ -94,7 +93,6 @@ namespace processos.Models
                     lista.Add(new SecoesModels
                     {
                         Sec_id = Convert.ToInt32(itens["sec_id"]),
-                        Sec_idPai = Convert.ToInt32(itens["sec_idPai"]),
                         Sec_titulo = itens["sec_titulo"].ToString()
                     });
                 }

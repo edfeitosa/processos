@@ -13,7 +13,6 @@ function Save() {
                 url: "http://" + caminhoAbsoluto() + "/" + View() + "/Save",
                 data: {
                     Sec_id: jQuery("#Sec_id").val(),
-                    Sec_idPai: jQuery("#Sec_idPai").val(),
                     Sec_titulo: jQuery("#Sec_titulo").val(),
                     Action: action
                 },
@@ -72,8 +71,7 @@ function Read(regPagina = 10, page = 1) {
                 retorno += '<table table class="tabela" cellspacing="0" cellpadding="0">';
                 retorno += '<thead>';
                 retorno += '<tr>';
-                retorno += '<td class="celulathead" style="width: 70%;">Seções</td>';
-                retorno += '<td class="celulathead" style="width: 10%; text-align: center;" style="padding-left: 0px;">Subseções</td>';
+                retorno += '<td class="celulathead" style="width: 80%;">Seções</td>';
                 retorno += '<td class="celulathead" style="width: 10%; text-align: center;" style="padding-left: 0px;">Editar</td>';
                 retorno += '<td class="celulathead" style="width: 10%; text-align: center;" style="padding-left: 0px;">Excluir</td>';
                 retorno += '</tr>';
@@ -87,17 +85,11 @@ function Read(regPagina = 10, page = 1) {
                     retorno += '</td>';
                     retorno += '<td class="celulabody celulacentralizar">';
                     retorno += '<a href="http://' + caminhoAbsoluto() + '/' + View() + '/Save?id=' + dados[i].Sec_id + '">';
-                    retorno += '<img src="http://' + caminhoAbsoluto() + '/Imagens/secoes.png" border="0" title="Editar item" class="separabotao" />';
-                    retorno += '</a>';
-                    retorno += '</td>';
-                    retorno += '<td class="celulabody celulacentralizar">';
-                    retorno += '<a href="http://' + caminhoAbsoluto() + '/' + View() + '/Save?id=' + dados[i].Sec_id + '">';
                     retorno += '<img src="http://' + caminhoAbsoluto() + '/Imagens/editar.png" border="0" title="Cadastro de reserva" style="cursor: pointer;" class="separabotao" id="' + dados[i].Sec_id + '" />';
                     retorno += '</a>';
                     retorno += '</td>';
                     retorno += '<td class="celulabody celulacentralizar">';
                     retorno += '<img src="http://' + caminhoAbsoluto() + '/Imagens/lixeira.png" border="0" title="Excluir item" style="cursor: pointer;" class="separabotao excluirItem" id="' + dados[i].Sec_id + '" />';
-                    retorno += '<input type="hidden" name="fun_nome-' + dados[i].Sec_id + '" id="fun_nome-' + dados[i].Sec_id + '" value="' + dados[i].Sec_titulo + '" />';
                     retorno += '</td>';
                     retorno += '</tr>';
                 }
@@ -142,7 +134,6 @@ function ReadGet() {
                     if (qtd > 0) {
                         for (i = 0; i < qtd; i++) {
                             jQuery("#Sec_titulo").val(dados[i].Sec_titulo);
-                            jQuery("#Sec_idPai").val(dados[i].Sec_idPai);
                             jQuery("#titulo").html(dados[i].Sec_titulo);
                         }
                     }
@@ -150,4 +141,29 @@ function ReadGet() {
             });
         }, 200);
     }
+}
+
+// excluir item
+function Delete(regPagina = 10, page = 1) {
+    jQuery(document).ready(function () {
+        jQuery(".excluirItem").live("click", function () {
+            var id = jQuery(this).attr("id");
+            Modal("duvida", "Confirmação de Exclusão", "Deseja realmente excluir este item?", "", View());
+            jQuery("#okConf").live("click", function () {
+                jQuery("#modal").hide();
+                jQuery.ajax({
+                    type: "post",
+                    url: "http://" + caminhoAbsoluto() + "/" + View() + "/Delete",
+                    data: {
+                        Sec_id: id,
+                        Action: "delete"
+                    },
+                    success: function () {
+                        Read(regPagina, page);
+                        Modal("sucesso", "Sucesso", "Item excluído com sucesso", "", View());
+                    }
+                });
+            });
+        });
+    });
 }

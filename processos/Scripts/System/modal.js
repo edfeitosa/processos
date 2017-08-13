@@ -13,7 +13,7 @@
     reply += '<div class="resposta">' + mensagem + '</div>';
     if (tipo == "duvida") {
         reply += '<div class="ok" id="cancela">Não</div>';
-        reply += '<div class="ok" id="ok" style="margin-right: 120px;">Sim</div>';
+        reply += '<div class="ok" id="okConf" style="margin-right: 120px;">Sim</div>';
     } else {
         reply += '<div class="ok" id="ok">Ok</div>';
     }

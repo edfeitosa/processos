@@ -87,5 +87,12 @@ namespace processos.Controllers
                 }, JsonRequestBehavior.AllowGet);
             }
         }
+
+        // delete
+        [HttpPost]
+        public JsonResult Delete(SecoesModels secoes)
+        {
+            return Json(new SecoesModels().Crud(secoes), JsonRequestBehavior.AllowGet);
+        }
     }
 }
