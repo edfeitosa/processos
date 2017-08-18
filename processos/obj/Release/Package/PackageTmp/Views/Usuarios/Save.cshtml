@@ -1,0 +1,39 @@
+﻿@{
+    string id;
+    if (Request.QueryString["id"] == null)
+    {
+        id = "0";
+    }
+    else
+    {
+        id = Request.QueryString["id"];
+    }
+}
+
+<h2 id="titulo">Adicionar/Editar Usuários</h2>
+@Ferramentas.Save(true, "Usuarios", true)
+
+<p>Todos os campos marcados com <b>(*)</b> precisam ser preenchidos.</p>
+
+@Forms.Text("Nome do Usuário (*)", "Usu_nome", "Informe o nome do usuário", "", "input", "100", "")
+@Forms.Text("Login (*)", "Usu_login", "Informe o login para acesso", "", "input", "100", "")
+@{
+    if (id == "0")
+    {
+        @Forms.Password("Senha (*)", "Usu_senha", "Informe a senha para acesso", "", "input", "100", "")
+        @Forms.Hidden("Usu_status", "1")
+    }
+    else
+    {
+        string[] status = new string[] { "Não", "Sim" };
+        @Forms.SelectArray("Status", "Usu_status", "", "select", "", status)
+    }
+}
+@Forms.Hidden("Usu_id", id)
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/Jquery.md5.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/System/usuarios.js")"></script>
+<script type="text/javascript">
+    Save();
+    ReadGet();
+</script>

@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EasyEncryption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyEncryption.1.0.2\lib\EasyEncryption.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -118,8 +121,12 @@
     <Content Include="Imagens\secoes.png" />
     <Content Include="Imagens\usuarios.png" />
     <Content Include="Scripts\Jquery-1.8.2.js" />
+    <Content Include="Scripts\Jquery.maskedinput.js" />
+    <Content Include="Scripts\Jquery.md5.js" />
+    <Content Include="Scripts\Jquery.PrintArea.js" />
     <Content Include="Scripts\System\arquivos.js" />
     <Content Include="Scripts\System\modal.js" />
+    <Content Include="Scripts\System\usuarios.js" />
     <Content Include="Scripts\System\secoes.js" />
     <Content Include="Scripts\System\_padrao.js" />
     <Content Include="Web.config" />
@@ -129,12 +136,14 @@
     <Compile Include="Controllers\ArquivosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SecoesController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ArquivosModels.cs" />
     <Compile Include="Models\ConnectionModels.cs" />
     <Compile Include="Models\SecoesModels.cs" />
+    <Compile Include="Models\UsuariosModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +157,8 @@
     <Content Include="Views\Arquivos\Create.cshtml" />
     <Content Include="Views\Secoes\Index.cshtml" />
     <Content Include="Views\Secoes\Save.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Usuarios\Save.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

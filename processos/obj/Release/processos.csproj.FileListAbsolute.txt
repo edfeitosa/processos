@@ -52,3 +52,4 @@ C:\DotNet\processos\processos\obj\Release\processos.dll
 C:\DotNet\processos\processos\obj\Release\processos.pdb
 C:\DotNet\processos\processos\obj\Release\processos.csprojResolveAssemblyReference.cache
 C:\DotNet\processos\processos\bin\MySql.Data.dll
+C:\DotNet\processos\processos\bin\EasyEncryption.dll
