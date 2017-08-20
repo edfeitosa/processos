@@ -1,0 +1,32 @@
+﻿@{
+    string id;
+    if (Request.QueryString["id"] == null)
+    {
+        id = "0";
+    }
+    else
+    {
+        id = Request.QueryString["id"];
+    }
+}
+
+<h1>Adicionar/Editar Arquivos</h1>
+@Ferramentas.Save(true, "Arquivos", true)
+
+<p>Todos os campos marcados com <b>(*)</b> precisam ser preenchidos.</p>
+
+@Forms.Select("Seção (*)", "Sec_id", "", "select", "", "Secoes", "Sec_id", "Sec_titulo", "", "Read")
+@Forms.Text("Número do diário (*)", "Arq_diario", "Número do diário", "", "input", "", "")
+@Forms.Text("Data da edição do diário (*)", "Arq_dtDiario", "Informe data", "", "input", "", "")
+@Forms.Text("Data da pauta da sessão ordinária (se houver)", "Arq_dtSessao", "Informe data", "", "input", "", "")
+@Forms.Text("Data da expedição (se houver)", "Arq_dtExpediente", "Informe data", "", "input", "", "")
+@Forms.Textarea("Conteúdo do arquivo (*)", "Arq_conteudo", "", "textarea", "height: 300px;")
+@Forms.Hidden("Arq_id", id)
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/System/arquivos.js")"></script>
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/Datapicker/jquery-ui-1.8.20.custom.css")" />
+<script type="text/javascript" src="@Url.Content("~/Scripts/Datapicker/jquery-ui-1.8.20.custom.min.js")"></script>
+<script type="text/javascript">
+    Datapicker();
+    Save();
+</script>

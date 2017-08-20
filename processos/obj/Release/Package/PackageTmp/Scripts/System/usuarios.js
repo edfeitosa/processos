@@ -102,13 +102,33 @@ function Read(regPagina = 10, page = 1) {
                 var total = Total();
                 var numPagina = Math.ceil(total / regPagina);
                 var paginas = "";
-                for (var j = 1; j < numPagina + 1; j++) {
-                    paginas += "<a href='http://" + caminhoAbsoluto() + "/" + View() + "/Index?pag=" + j + "'>";
-                    if (page == j) {
-                        paginas += "<div class='page pageAct'>" + j + "</div>";
-                    } else {
-                        paginas += "<div class='page'>" + j + "</div>";
+                if (numPagina > 0) {
+                    // paginação exibida
+                    var limite = 5;
+                    // pagina inicial
+                    if ((page - limite) > 1) { var inicio = page - limite; } else { var inicio = 1; }
+                    // página final
+                    if ((page + limite) < numPagina) { var fim = page + limite; } else { var fim = numPagina; }
+                    paginas += "<a href='http://" + caminhoAbsoluto() + "/" + View() + "/Index?pag=1' title='Ir para a primeira página'>";
+                    paginas += "<div class='page'><<</div>";
+                    paginas += "</a>";
+                    for (var j = inicio; j < fim + 1; j++) {
+                        paginas += "<a href='http://" + caminhoAbsoluto() + "/" + View() + "/Index?pag=" + j + "'>";
+                        if (page == j) {
+                            paginas += "<div class='page pageAct'>" + j + "</div>";
+                        } else {
+                            paginas += "<div class='page'>" + j + "</div>";
+                        }
+                        paginas += "</a>";
                     }
+                    if (page != numPagina) {
+                        paginas += "<div class='page pageRet'>...</div>";
+                        paginas += "<a href='http://" + caminhoAbsoluto() + "/" + View() + "/Index?pag=" + numPagina + "'>";
+                        paginas += "<div class='page'>" + numPagina + "</div>";
+                        paginas += "</a>";
+                    }
+                    paginas += "<a href='http://" + caminhoAbsoluto() + "/" + View() + "/Index?pag=" + numPagina + "' title='Ir para a última página'>";
+                    paginas += "<div class='page'>>></div>";
                     paginas += "</a>";
                 }
                 jQuery("#pagination").html(paginas);
