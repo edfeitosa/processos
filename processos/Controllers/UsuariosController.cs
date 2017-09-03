@@ -9,11 +9,18 @@ namespace processos.Controllers
 {
     public class UsuariosController : Controller
     {
-        // página inicial
+        // index
         public ActionResult Index()
         {
-            ViewBag.title = "Usuários";
-            return View();
+            if (Session["Usu_nome"] == null)
+            {
+                return RedirectToAction("Login", "Home", new { log = "nao" });
+            }
+            else
+            {
+                ViewBag.title = "Usuários";
+                return View();
+            }
         }
 
         // lista dados
@@ -23,11 +30,18 @@ namespace processos.Controllers
             return Json(new UsuariosModels().Read(usuarios), JsonRequestBehavior.AllowGet);
         }
 
-        // adiciona/edita dados
+        // inserir/editar
         public ActionResult Save()
         {
-            ViewBag.title = "Adicionando/editando usuários";
-            return View();
+            if (Session["Usu_nome"] == null)
+            {
+                return RedirectToAction("Login", "Home", new { log = "nao" });
+            }
+            else
+            {
+                ViewBag.title = "Adicionando/editando usuários";
+                return View();
+            }
         }
 
         // salva dados
@@ -36,7 +50,9 @@ namespace processos.Controllers
         {
             try
             {
-                if (usuarios.Usu_nome == null || usuarios.Usu_login == null || usuarios.Usu_senha == null)
+                if (string.IsNullOrEmpty(usuarios.Usu_nome) ||
+                    string.IsNullOrEmpty(usuarios.Usu_login) ||
+                    string.IsNullOrEmpty(usuarios.Usu_senha))
                 {
                     return Json(new
                     {

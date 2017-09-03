@@ -1,4 +1,4 @@
-﻿<!-- Barra de ferramentas home -->
+﻿<!-- ferramentas home -->
 @helper BotaoHome(bool voltar)
 {
     <div class="barraFerramentas">
@@ -22,29 +22,7 @@
     </div>
 }
 
-<!-- Barra de ferramentas padrão -->
-@helper Padrao(string view)
-{
-    <div class="barraFerramentas">
-        <div class="botao">
-            <img src="~/Imagens/imprimir.png" alt="imprimir" id="imprimir" title="Imprimir contracheque" style="cursor: pointer;" />
-            <br />
-            Imprimir
-            <div class="clear"></div>
-        </div>
-        <div class="botao">
-            <a href="~/Home">
-                <img src="~/Imagens/home.png" alt="painel" title="Painel de Administração" />
-            </a>
-            <br />
-            Início
-            <div class="clear"></div>
-        </div>
-        <div id="novosBotoes"></div>
-    </div>
-}
-
-<!-- Barra de ferramentas padrão -->
+<!-- ferramentas padrão impressão -->
 @helper PadraoCancelar(string view, string pagina)
 {
     <div class="barraFerramentas">
@@ -73,7 +51,7 @@
     </div>
 }
 
-<!-- Barra de ferramentas padrão -->
+<!-- ferramentas padrão index -->
 @helper PadraoIndex(string view)
 {
     <div class="barraFerramentas">
@@ -96,7 +74,7 @@
     </div>
 }
 
-<!-- Barra de ferramentas padrão na página salvar -->
+<!-- ferramentas padrão salvar -->
 @helper Save(bool novo, string view, bool listar)
 {
     <div class="barraFerramentas">
@@ -139,7 +117,7 @@
     </div>
 }
 
-<!-- Barra de ferramentas da página de recuperação de senha -->
+<!-- ferramentas recuperação de senha -->
 @helper RecuperacaoSenha()
 {
     <div class="barraFerramentas">
@@ -147,6 +125,37 @@
             <img src="~/Imagens/busca.png" alt="buscar" id="buscar" title="Buscar Dados" />
             <br />
             Buscar
+            <div class="clear"></div>
+        </div>
+        <div class="botao">
+            <a href="~/Home">
+                <img src="~/Imagens/home.png" alt="painel" title="Painel Inicial" />
+            </a>
+            <br />
+            Início
+            <div class="clear"></div>
+        </div>
+    </div>
+}
+
+<!-- ferramentas recuperação de senha -->
+@helper Buscar(string view, string pagina)
+{
+    <div class="barraFerramentas">
+        <div class="botao" id="mudarSenha">
+            <a href="~/@view">
+                <img src="~/Imagens/arquivos.png" alt="arquivos" id="arquivos" title="Listar arquivos" />
+            </a>
+            <br />
+            Arquivos
+            <div class="clear"></div>
+        </div>
+        <div class="botao" id="mudarSenha">
+            <a href="~/@view/@pagina">
+                <img src="~/Imagens/buscar.png" alt="buscar" id="buscar" title="Buscar Dados" />
+            </a>
+            <br />
+            Nova Busca
             <div class="clear"></div>
         </div>
         <div class="botao">

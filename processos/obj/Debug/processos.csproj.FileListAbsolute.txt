@@ -51,3 +51,5 @@ C:\DotNet\processos\processos\bin\pt-br\System.Web.Mvc.resources.dll
 C:\DotNet\processos\processos\obj\Debug\processos.csprojResolveAssemblyReference.cache
 C:\DotNet\processos\processos\obj\Debug\processos.dll
 C:\DotNet\processos\processos\obj\Debug\processos.pdb
+C:\DotNet\processos\processos\bin\EasyEncryption.dll
+C:\DotNet\processos\processos\bin\MySql.Data.dll

@@ -123,11 +123,10 @@
     font-weight: bold;
     color: #fff;
     cursor: pointer;
-    background-color: #005396;
+    background-color: #666;
     box-shadow: none;
     border-radius: 3px;
     border: none;
-    margin-top: 10px;
 }
 
 .botaosubmit

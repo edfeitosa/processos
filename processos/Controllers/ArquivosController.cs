@@ -9,16 +9,46 @@ namespace processos.Controllers
 {
     public class ArquivosController : Controller
     {
+        // index
         public ActionResult Index()
         {
-            ViewBag.title = "Arquivos";
-            return View();
+            if (Session["Usu_nome"] == null)
+            {
+                return RedirectToAction("Login", "Home", new { log = "nao" });
+            }
+            else
+            {
+                ViewBag.title = "Arquivos";
+                return View();
+            }
         }
 
+        // inserir/editar
         public ActionResult Save()
         {
-            ViewBag.title = "Arquivos";
-            return View();
+            if (Session["Usu_nome"] == null)
+            {
+                return RedirectToAction("Login", "Home", new { log = "nao" });
+            }
+            else
+            {
+                ViewBag.title = "Arquivos";
+                return View();
+            }
+        }
+
+        // detalhes
+        public ActionResult Details()
+        {
+            if (Session["Usu_nome"] == null)
+            {
+                return RedirectToAction("Login", "Home", new { log = "nao" });
+            }
+            else
+            {
+                ViewBag.title = "Detalhe de processo";
+                return View();
+            }
         }
 
         // lista dados
@@ -26,6 +56,13 @@ namespace processos.Controllers
         public JsonResult Read(ArquivosModels arquivos)
         {
             return Json(new ArquivosModels().Read(arquivos), JsonRequestBehavior.AllowGet);
+        }
+
+        // lista get por id
+        [HttpGet]
+        public JsonResult ReadGet(ArquivosModels arquivos)
+        {
+            return Json(new ArquivosModels().ReadGet(arquivos), JsonRequestBehavior.AllowGet);
         }
 
         // delete
@@ -41,10 +78,10 @@ namespace processos.Controllers
             try
             {
                 if (arquivos.Sec_id == Convert.ToInt32("0") ||
-                    arquivos.Arq_diario == "" ||
-                    arquivos.Arq_dtDiario == "" ||
-                    arquivos.Arq_conteudo == "")
-                {
+                    string.IsNullOrEmpty(arquivos.Arq_diario) || 
+                    string.IsNullOrEmpty(arquivos.Arq_dtDiario) || 
+                    string.IsNullOrEmpty(arquivos.Arq_conteudo) 
+                ){
                     return Json(new
                     {
                         indice = "erro".ToString(),
@@ -65,6 +102,7 @@ namespace processos.Controllers
                         ArquivosModels _arquivos = new ArquivosModels();
                         _arquivos.Sec_id = arquivos.Sec_id;
                         _arquivos.Arq_diario = arquivos.Arq_diario;
+                        _arquivos.Arq_pauta = arquivos.Arq_pauta;
                         _arquivos.Arq_dtDiario = arquivos.Arq_dtDiario;
                         _arquivos.Arq_dtSessao = arquivos.Arq_dtSessao;
                         _arquivos.Arq_dtExpediente = arquivos.Arq_dtExpediente;
@@ -100,6 +138,40 @@ namespace processos.Controllers
                     mensagem = "Erro: " + ex.ToString(),
                     url = "".ToString()
                 }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        // busca
+        public ActionResult Buscar()
+        {
+            if (Session["Usu_nome"] == null)
+            {
+                return RedirectToAction("Login", "Home", new { log = "nao" });
+            }
+            else
+            {
+                ViewBag.title = "Busca por processos";
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Buscar(ArquivosModels arquivos)
+        {
+            ViewBag.title = "Busca por processos";
+            if (Request.QueryString["buscar"] != null)
+            {
+                ArquivosModels _arquivos = new ArquivosModels();
+                _arquivos.Arq_titulo = Request.QueryString["titulo"];
+                _arquivos.Arq_conteudo = Request.QueryString["titulo"];
+                _arquivos.Sec_id = Convert.ToInt32(Request.QueryString["secao"]);
+                _arquivos.Arq_diario = Request.QueryString["diario"];
+                _arquivos.Action = Request.QueryString["action"];
+                return View(new ArquivosModels().Search(_arquivos));
+            }
+            else
+            {
+                return View();
             }
         }
     }

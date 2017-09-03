@@ -30,6 +30,7 @@ function Save() {
                 data: {
                     Sec_id: jQuery("#Sec_id").val(),
                     Arq_diario: jQuery("#Arq_diario").val(),
+                    Arq_pauta: jQuery("#Arq_pauta").val(),
                     Arq_dtDiario: jQuery("#Arq_dtDiario").val(),
                     Arq_dtSessao: jQuery("#Arq_dtSessao").val(),
                     Arq_dtExpediente: jQuery("#Arq_dtExpediente").val(),
@@ -92,7 +93,7 @@ function Read(regPagina = 10, page = 1) {
                 retorno += '<thead>';
                 retorno += '<tr>';
                 retorno += '<td class="celulathead" style="width: 90%;">Arquivos relativos a processos</td>';
-                retorno += '<td class="celulathead" style="width: 10%; text-align: center;" style="padding-left: 0px;">Detalhes</td>';
+                retorno += '<td class="celulathead" style="width: 10%; text-align: center; padding-left: 0px;">Detalhes</td>';
                 retorno += '</tr>';
                 retorno += '</thead>';
                 for (i = 0; i < qtd; i++) {
@@ -109,7 +110,7 @@ function Read(regPagina = 10, page = 1) {
                     retorno += '</td>';
                     retorno += '<td class="celulabody celulacentralizar">';
                     retorno += '<a href="http://' + caminhoAbsoluto() + '/' + View() + '/Details?id=' + dados[i].Arq_id + '">';
-                    retorno += '<img src="http://' + caminhoAbsoluto() + '/Imagens/arquivos.png" border="0" title="Editar item" style="cursor: pointer;" class="separabotao" id="' + dados[i].Arq_id + '" />';
+                    retorno += '<img src="http://' + caminhoAbsoluto() + '/Imagens/arquivos.png" border="0" title="Detalhes" style="cursor: pointer;" id="' + dados[i].Arq_id + '" />';
                     retorno += '</a>';
                     retorno += '</td>';
                 }
@@ -164,46 +165,27 @@ function ReadGet() {
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 type: "get",
-                url: "http://" + caminhoAbsoluto() + "/" + View() + "/Read",
+                url: "http://" + caminhoAbsoluto() + "/" + View() + "/ReadGet",
                 data: {
-                    Sec_id: jQuery("#Arq_id").val()
+                    Arq_id: jQuery("#Arq_id").val(),
+                    Action: "listarGet"
                 },
                 success: function (dados) {
                     var qtd = dados.length;
                     var retorno = "";
                     if (qtd > 0) {
                         for (i = 0; i < qtd; i++) {
-                            jQuery("#Arq_titulo").val(dados[i].Arq_titulo);
-                            jQuery("#titulo").html(dados[i].Arq_titulo);
+                            var texto = dados[i].Arq_conteudo.split("\n");
+                            var textoFormat = "";
+                            var textoFormat = dados[i].Arq_pauta + "<br /><br />";
+                            for (j = 0; j < texto.length; j++) {
+                                textoFormat += texto[j] + "<br />";
+                            }
+                            jQuery("#detalhesProcesso").html(textoFormat);
                         }
                     }
                 }
             });
         }, 200);
     }
-}
-
-// excluir item
-function Delete(regPagina = 10, page = 1) {
-    jQuery(document).ready(function () {
-        jQuery(".excluirItem").live("click", function () {
-            var id = jQuery(this).attr("id");
-            Modal("duvida", "Confirmação de Exclusão", "Deseja realmente excluir este item?", "", View());
-            jQuery("#okConf").live("click", function () {
-                jQuery("#modal").hide();
-                jQuery.ajax({
-                    type: "post",
-                    url: "http://" + caminhoAbsoluto() + "/" + View() + "/Delete",
-                    data: {
-                        Arq_id: id,
-                        Action: "delete"
-                    },
-                    success: function () {
-                        Read(regPagina, page);
-                        Modal("sucesso", "Sucesso", "Item excluído com sucesso", "", View());
-                    }
-                });
-            });
-        });
-    });
 }

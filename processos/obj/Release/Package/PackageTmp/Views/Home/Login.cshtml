@@ -1,0 +1,12 @@
+﻿<!-- painel de login -->
+<div id="login">
+    @Forms.Text("Login (*)", "Usu_login", "Informe o login", "", "input", "100", "")
+    @Forms.Password("Password (*)", "Usu_senha", "Informe a senha", "", "input", "100", "")
+    @Forms.Submit("Acessar", "acessar", "submit", "")
+</div>
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/Jquery.md5.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/System/home.js")"></script>
+<script type="text/javascript">
+    Login();
+</script>

@@ -1,0 +1,94 @@
+﻿@model IEnumerable<processos.Models.ArquivosModels>
+
+@{
+    string titulo = "";
+    string secao = "";
+    string diario = "";
+    if (Request.QueryString["buscar"] != null)
+    {
+        titulo = Request.QueryString["titulo"];
+        secao = Request.QueryString["secao"];
+        diario = Request.QueryString["diario"];
+    }
+}
+
+<h1>Busca por Processos</h1>
+
+@Ferramentas.Buscar("Arquivos".ToString(), "Buscar".ToString())
+
+<p>Informe os dados referente à busca</p>
+
+<div class="barraBusca">
+    <form method="get" action="">
+        @Forms.Text("Termo de busca", "titulo", "Termo de busca", titulo, "input", "", "")
+        @Forms.Select("Seção", "secao", secao, "select", "", "Secoes", "Sec_id", "Sec_titulo", "Todas", "Read")
+        @Forms.Text("Número do diário", "diario", "Número do diário", diario, "input", "", "")
+        @Forms.Hidden("action", "buscar")
+        @Forms.Submit("Buscar", "buscar", "submit", "")
+    </form>
+</div>
+
+@if (Request.QueryString["buscar"] != null)
+{
+    if (Request.QueryString["titulo"] == "" && Request.QueryString["secao"] == "0" && Request.QueryString["diario"] == "")
+    {
+        // nada informado para busca
+        <script type="text/javascript">
+            jQuery(document).ready(function () {
+                Modal("erro", "Faltam dados", "Você não informou nenhum termo para que a busca fosse realizada. Tente novamente", "/Arquivos/Buscar", "");
+            });
+        </script>
+    }
+    else
+    {
+        if (Model.Count() == 0)
+        {
+            // nada encontrado na busca
+            <script type="text/javascript">
+                jQuery(document).ready(function () {
+                    Modal("erro", "Nada foi encontrado", "A pesquisa que você realizou, não encontrou resultados. Verifique os termos informados e tente novamente", "/Arquivos/Buscar", "");
+                });
+            </script>
+        }
+        else
+        {
+            if (Model.Count() > 1)
+            {
+                <h2>Foram encontrados <span style="color: #ff0000;">@Model.Count()</span> resultados com as condições informadas</h2>
+            }
+            else
+            {
+                <h2>Foi encontrado <span style="color: #ff0000;">1</span> resultado com as condições informadas</h2>
+            }
+            // lista dados
+            <table table class="tabela" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <td class="celulathead" style="width: 90%;">Arquivos relativos a processos</td>
+                        <td class="celulathead" style="width: 10%; text-align: center; padding-left: 0px;">Detalhes</td>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="celulabody paddingleft">
+                            <a href="~/Arquivos/Details?id=@item.Arq_id">
+                                @item.Arq_titulo
+                            </a>
+                            <div class="detalhes">
+                                <b>Nº do Diário: </b>@item.Arq_diario |
+                                <b>Diário publicado em: </b>@item.Arq_dtDiario |
+                                <b>Adicionado ao sistema em: </b>@item.Arq_data
+                            </div>
+                        </td>
+                        <td class="celulabody celulacentralizar">
+                            <a href="~/Arquivos/Details?id=@item.Arq_id">
+                                <img src="@Url.Content("~/Imagens/arquivos.png")" border="0" title="Detalhes" style="width: 32px;" />
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+    }
+}

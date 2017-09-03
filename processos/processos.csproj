@@ -140,6 +140,7 @@
     <Content Include="Scripts\Jquery.md5.js" />
     <Content Include="Scripts\Jquery.PrintArea.js" />
     <Content Include="Scripts\System\arquivos.js" />
+    <Content Include="Scripts\System\home.js" />
     <Content Include="Scripts\System\modal.js" />
     <Content Include="Scripts\System\usuarios.js" />
     <Content Include="Scripts\System\secoes.js" />
@@ -174,6 +175,9 @@
     <Content Include="Views\Secoes\Save.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\Usuarios\Save.cshtml" />
+    <Content Include="Views\Arquivos\Buscar.cshtml" />
+    <Content Include="Views\Arquivos\Details.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

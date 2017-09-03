@@ -122,5 +122,35 @@ namespace processos.Models
             }
         }
 
+        // login
+        public IEnumerable<UsuariosModels> Login(UsuariosModels usuarios)
+        {
+            string sqlQuery = "SELECT usu_nome FROM tbl_usuarios WHERE usu_login = '" + usuarios.Usu_login + "' " +
+                "AND usu_senha = '" + EasyEncryption.MD5.ComputeMD5Hash(usuarios.Usu_senha) + "'";
+            MySqlCommand query = new MySqlCommand(sqlQuery, db);
+            IList<UsuariosModels> lista = new List<UsuariosModels>();
+            try
+            {
+                db.Open();
+                MySqlDataReader itens = query.ExecuteReader();
+                while (itens.Read())
+                {
+                    lista.Add(new UsuariosModels
+                    {
+                        Usu_nome = itens["usu_nome"].ToString()
+                    });
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
+
     }
 }

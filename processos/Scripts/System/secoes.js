@@ -72,8 +72,8 @@ function Read(regPagina = 10, page = 1) {
                 retorno += '<thead>';
                 retorno += '<tr>';
                 retorno += '<td class="celulathead" style="width: 80%;">Seções</td>';
-                retorno += '<td class="celulathead" style="width: 10%; text-align: center;" style="padding-left: 0px;">Editar</td>';
-                retorno += '<td class="celulathead" style="width: 10%; text-align: center;" style="padding-left: 0px;">Excluir</td>';
+                retorno += '<td class="celulathead" style="width: 10%; text-align: center; padding-left: 0px;">Editar</td>';
+                retorno += '<td class="celulathead" style="width: 10%; text-align: center; padding-left: 0px;">Excluir</td>';
                 retorno += '</tr>';
                 retorno += '</thead>';
                 for (i = 0; i < qtd; i++) {
@@ -85,11 +85,11 @@ function Read(regPagina = 10, page = 1) {
                     retorno += '</td>';
                     retorno += '<td class="celulabody celulacentralizar">';
                     retorno += '<a href="http://' + caminhoAbsoluto() + '/' + View() + '/Save?id=' + dados[i].Sec_id + '">';
-                    retorno += '<img src="http://' + caminhoAbsoluto() + '/Imagens/editar.png" border="0" title="Cadastro de reserva" style="cursor: pointer;" class="separabotao" id="' + dados[i].Sec_id + '" />';
+                    retorno += '<img src="http://' + caminhoAbsoluto() + '/Imagens/editar.png" border="0" title="Cadastro de reserva" style="cursor: pointer;" id="' + dados[i].Sec_id + '" />';
                     retorno += '</a>';
                     retorno += '</td>';
                     retorno += '<td class="celulabody celulacentralizar">';
-                    retorno += '<img src="http://' + caminhoAbsoluto() + '/Imagens/lixeira.png" border="0" title="Excluir item" style="cursor: pointer;" class="separabotao excluirItem" id="' + dados[i].Sec_id + '" />';
+                    retorno += '<img src="http://' + caminhoAbsoluto() + '/Imagens/lixeira.png" border="0" title="Excluir item" style="cursor: pointer;" class="excluirItem" id="' + dados[i].Sec_id + '" />';
                     retorno += '</td>';
                     retorno += '</tr>';
                 }

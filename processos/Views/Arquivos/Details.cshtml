@@ -1,0 +1,22 @@
+﻿@{
+    string id;
+    if (Request.QueryString["id"] == null)
+    {
+        id = "0";
+    }
+    else
+    {
+        id = Request.QueryString["id"];
+    }
+}
+
+<h2 id="titulo">Detalhes do processo</h2>
+@Ferramentas.PadraoIndex("Arquivos")
+
+<div id="detalhesProcesso"></div>
+@Forms.Hidden("Arq_id", id)
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/System/arquivos.js")"></script>
+<script type="text/javascript">
+    ReadGet();
+</script>

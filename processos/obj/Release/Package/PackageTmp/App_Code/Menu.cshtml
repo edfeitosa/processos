@@ -1,10 +1,15 @@
 ﻿@helper menu() {
     <nav class="navigation">
         <a href="~/Home/Index" style="color: #f8ac11;">Início</a>
-        <a href="~/Arquivos">Arquivos</a>
-        <a href="~/Buscar">Buscar</a>
-        <a href="~/Secoes">Seções</a>
-        <a href="~/Usuarios">Usuários</a>
-        <a href="#">Sair</a>
+        @{
+            if (Session["Usu_nome"] != null)
+            {
+                <a href="~/Arquivos">Arquivos</a>
+                <a href="~/Arquivos/Buscar">Buscar</a>
+                <a href="~/Secoes">Seções</a>
+                <a href="~/Usuarios">Usuários</a>
+                <a href="#" class="sair" style="color: #ff0000; margin-right: 0px; padding-right: 0px;">Sair</a>
+            }
+        }
     </nav>
 }

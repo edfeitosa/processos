@@ -12,8 +12,15 @@ namespace processos.Controllers
         // página inicial
         public ActionResult Index()
         {
-            ViewBag.title = "Seções";
-            return View();
+            if (Session["Usu_nome"] == null)
+            {
+                return RedirectToAction("Login", "Home", new { log = "nao" });
+            }
+            else
+            {
+                ViewBag.title = "Seções";
+                return View();
+            }
         }
 
         // lista dados
@@ -26,8 +33,15 @@ namespace processos.Controllers
         // adiciona/edita dados
         public ActionResult Save()
         {
-            ViewBag.title = "Adicionando/editando seções";
-            return View();
+            if (Session["Usu_nome"] == null)
+            {
+                return RedirectToAction("Login", "Home", new { log = "nao" });
+            }
+            else
+            {
+                ViewBag.title = "Adicionando/editando seções";
+                return View();
+            }
         }
 
         // salva dados
